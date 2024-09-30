@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium-Tools von Your Daily Tool">
+    <title>Premium - Your Daily Tool</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212; /* Dunkler Hintergrund */
+            color: #e0e0e0; /* Helle Schrift */
+            scroll-behavior: smooth;
+        }
+
+        /* Menü Styles */
+        nav {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #007aff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00aaff;
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* Premium Container */
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Premium Button Styles */
+        .premium-button {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .premium-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background: #1e1e1e;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#tools">Tools</a></li>
+            <li><a href="index.html#premium">Premium</a></li>
+            <li><a href="index.html#about">Über uns</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Premium-Tools</h1>
+    </header>
+
+    <!-- Main Premium Container -->
+    <div class="container">
+        <h2>Entdecke unsere Premium-Tools</h2>
+        <p>Unsere Premium-Tools bieten dir zusätzliche Funktionen und Vorteile. Wähle eines der folgenden Pakete:</p>
+
+        <!-- Premium Buttons -->
+        <div>
+            <button class="premium-button" onclick="alert('Du hast das Paket 1 gewählt!')">Premium Paket 1</button>
+            <button class="premium-button" onclick="alert('Du hast das Paket 2 gewählt!')">Premium Paket 2</button>
+            <button class="premium-button" onclick="alert('Du hast das Paket 3 gewählt!')">Premium Paket 3</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
+    </footer>
+
+</body>
+</html>

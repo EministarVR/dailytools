@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einkaufswagen</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        .cart-container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007aff;
+        }
+        .item {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+        .checkout {
+            margin-top: 20px;
+            padding: 10px;
+            background: #007aff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .checkout:hover {
+            background: #0051a8;
+        }
+        .back {
+            margin-top: 20px;
+            padding: 10px;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .back:hover {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <h2>Dein Einkaufswagen</h2>
+        <div id="cart-items"></div>
+        <button class="checkout">Zur Kasse</button>
+        <button class="back" onclick="window.location.href='index.html'">Zurück</button> <!-- Zurück zur Hauptseite -->
+    </div>
+
+    <script>
+        // Funktion zum Laden des Warenkorbs
+        function loadCart() {
+            const savedCart = JSON.parse(localStorage.getItem('cart'));
+            const cartItemsDiv = document.getElementById('cart-items');
+
+            if (savedCart && savedCart.length > 0) {
+                savedCart.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item';
+                    itemDiv.textContent = item;
+                    cartItemsDiv.appendChild(itemDiv);
+                });
+            } else {
+                cartItemsDiv.textContent = 'Dein Warenkorb ist leer.';
+            }
+        }
+
+        // Lade den Warenkorb beim Öffnen der Seite
+        loadCart();
+    </script>
+</body>
+</html>

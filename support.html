@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support-Seite für Your Daily Tool">
+    <title>Support - Your Daily Tool</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212; /* Dunkler Hintergrund */
+            color: #e0e0e0; /* Helle Schrift */
+            scroll-behavior: smooth;
+        }
+
+        /* Menü Styles */
+        nav {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #007aff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00aaff;
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* Support Container */
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .support-section {
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #007aff;
+            border-radius: 5px;
+            background: #1f1f1f;
+            color: #e0e0e0;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #00aaff;
+            outline: none;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007aff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #00aaff;
+        }
+
+        /* Bug Report Section */
+        .bug-report {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .faq h2 {
+            margin-bottom: 10px;
+            color: #007aff;
+        }
+
+        .faq-item {
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .faq-item:hover {
+            background: #383838;
+        }
+
+        .faq-item p {
+            display: none;
+            margin: 5px 0 0 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background: #1e1e1e;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#tools">Tools</a></li>
+            <li><a href="index.html#premium">Premium</a></li>
+            <li><a href="index.html#about">Über uns</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Support</h1>
+    </header>
+
+    <!-- Main Support Container -->
+    <div class="container">
+
+        <div class="support-section">
+            <h2>Hilfe und Unterstützung</h2>
+            <p>Wir sind hier, um dir zu helfen! Kontaktiere uns über das folgende Formular oder schau dir die häufig gestellten Fragen an.</p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Kontaktformular</h2>
+            <input type="text" id="name" placeholder="Dein Name" required>
+            <input type="email" id="email" placeholder="Deine E-Mail" required>
+            <textarea id="message" rows="5" placeholder="Deine Nachricht" required></textarea>
+            <button id="submitBtn" type="submit">Absenden</button>
+            <p id="responseMessage" style="margin-top: 10px;"></p>
+        </div>
+
+        <!-- Bug Report Section -->
+        <div class="bug-report">
+            <h2>Bug-Report</h2>
+            <p>Wenn du einen Fehler gefunden hast, teile ihn bitte mit uns! Du musst unserem Discord-Server beitreten, um einen Bug-Report einzureichen.</p>
+            <p>Hier ist der Link, um unserem Discord-Server beizutreten:</p>
+            <a href="https://dcserver.link/eministarscrew" target="_blank" style="color: #007aff;">Zum Discord-Server</a>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq">
+            <h2>Häufige Fragen (FAQ)</h2>
+            <div class="faq-item">
+                <h3>Wie kann ich Hilfe erhalten?</h3>
+                <p>Du kannst uns über das Kontaktformular erreichen oder unserem Discord-Server beitreten, um Unterstützung zu erhalten.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Gibt es Tutorials für die Tools?</h3>
+                <p>Ja, wir bieten umfassende Tutorials auf unserer Website an, die dir bei der Nutzung der Tools helfen.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Wie kann ich Feedback geben?</h3>
+                <p>Dein Feedback ist uns wichtig! Bitte benutze das Kontaktformular, um uns dein Feedback mitzuteilen.</p>
+            </div>
+        </div>
+
+        <!-- Discord Link -->
+        <div class="support-section">
+            <h2>Beitrete unserem Discord-Server</h2>
+            <p>Trete unserem Discord-Server bei, um Unterstützung und Community-Hilfe zu erhalten!</p>
+            <a href="https://dcserver.link/eministarscrew" target="_blank" style="color: #007aff;">Zum Discord-Server</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const paragraph = item.querySelector('p');
+                paragraph.style.display = paragraph.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+
+        // E-Mail Validierung
+        document.getElementById('submitBtn').addEventListener('click', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const responseMessage = document.getElementById('responseMessage');
+
+            // API-Anfrage zur E-Mail-Überprüfung
+            const apiUrl = `https://api.emailvalidation.com/validate?email=${encodeURIComponent(email)}&apiKey=DEIN_API_KEY`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.valid) {
+                    // Hier kannst du die Logik zum Senden der Nachricht hinzufügen
+                    responseMessage.textContent = 'Danke, deine Nachricht wurde gesendet!';
+                } else {
+                    responseMessage.textContent = 'Die eingegebene E-Mail-Adresse ist ungültig. Bitte überprüfe sie und versuche es erneut.';
+                }
+            } catch (error) {
+                console.error('Fehler bei der E-Mail-Überprüfung:', error);
+                responseMessage.textContent = 'Es gab ein Problem bei der E-Mail-Überprüfung. Bitte versuche es später erneut.';
+            }
+        });
+    </script>
+</body>
+</html>

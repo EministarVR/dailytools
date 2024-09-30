@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Daily Tool - Die besten Tools für deinen Alltag.">
+    <title>Your Daily Tool</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon"> <!-- Favicon hinzufügen -->
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212; /* Dunkler Hintergrund */
+            color: #e0e0e0; /* Helle Schrift */
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 80px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            transition: transform 0.5s;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        header p {
+            margin: 10px 0;
+            font-size: 1.5em;
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #383838;
+            color: #007aff;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        /* Tools Section */
+        .tools {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideIn 1s ease-in;
+        }
+
+        .tool {
+            background: #1f1f1f; /* Dunkle Box */
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative; /* Für die Positionierung der Schaltfläche */
+        }
+
+        .tool:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool h3 {
+            font-size: 1.8em;
+            color: #007aff;
+        }
+
+        .tool p {
+            font-size: 1em;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        /* Highlighted text */
+        .highlight {
+            background-color: #ffeb3b; /* Gelb für markierten Text */
+            color: #000; /* Schwarzer Text für besseren Kontrast */
+        }
+
+        /* Premium Section */
+        .premium {
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .premium h2 {
+            margin-bottom: 20px;
+            color: #007aff;
+            font-size: 2em;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 50px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Support Section */
+        .support {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 50px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        /* Shopping Cart */
+        .cart {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background: #007aff;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cart:hover {
+            background: #0051a8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Your Daily Tool</h1>
+        <p>Die besten Tools für einen produktiven Alltag</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#tools">Tools</a>
+        <a href="premium.html">Premium</a>
+        <a href="#about">Über uns</a>
+        <a href="support.html">Support</a> <!-- Verlinkung zur support.html -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Suche..." oninput="highlightText()">
+            <button>🔍</button>
+        </div>
+        <div class="cart">🛒</div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h2>Unsere Tools</h2>
+
+        <!-- Tools Section -->
+        <div class="tools" id="tools">
+            <div class="tool">
+                <h3>Kalender</h3>
+                <p class="tool-description">Organisiere deine Termine und behalte den Überblick über wichtige Ereignisse.</p>
+            </div>
+            <div class="tool">
+                <h3>Erinnerungen</h3>
+                <p class="tool-description">Setze Erinnerungen, damit du nie wieder etwas vergisst.</p>
+            </div>
+            <div class="tool">
+                <h3>Spiele</h3>
+                <p class="tool-description">Genieße eine Auswahl an unterhaltsamen Spielen für zwischendurch.</p>
+            </div>
+            <div class="tool">
+                <h3>KI Taschenrechner</h3>
+                <p class="tool-description">Berechne alles, was du brauchst, mit intelligenter Unterstützung.</p>
+            </div>
+            <div class="tool">
+                <h3>Word-Alternativen</h3>
+                <p class="tool-description">Finde nützliche Alternativen zu Microsoft Word für deine Dokumente.</p>
+            </div>
+            <div class="tool">
+                <h3>Datei-Konverter</h3>
+                <p class="tool-description">Konvertiere Dateien einfach und schnell in verschiedene Formate.</p>
+            </div>
+        </div>
+
+        <!-- Premium Section -->
+        <div class="premium" id="premium">
+            <h2>Premium-Modelle</h2>
+            <p>Kommt bald! Erhalte Zugang zu exklusiven Inhalten.</p>
+        </div>
+
+        <!-- About Section -->
+        <div class="about" id="about">
+            <h2>Über uns</h2>
+            <p>Wir sind Schüler der 9. Klasse und haben dieses private Projekt gestartet, um nützliche Tools für den Alltag anzubieten.</p>
+        </div>
+
+        <!-- Support Section -->
+        <div class="support">
+            <h2>Support</h2>
+            <p>Hast du Fragen? Kontaktiere uns über unsere <a href="support.html">Support-Seite</a>.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        // Highlighting text in the tool descriptions
+        function highlightText() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const toolDescriptions = document.querySelectorAll('.tool-description');
+
+            toolDescriptions.forEach(description => {
+                const text = description.innerText;
+                const regex = new RegExp(`(${searchInput})`, 'gi');
+                description.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
+            });
+        }
+    </script>
+</body>
+</html>
