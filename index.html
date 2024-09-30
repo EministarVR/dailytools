@@ -204,6 +204,38 @@
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em; /* Kleinere Schriftgröße für Handys */
+            }
+
+            nav {
+                flex-direction: column; /* Navigationsmenü untereinander */
+                align-items: flex-start; /* Links ausrichten */
+            }
+
+            nav a {
+                padding: 10px 0; /* Vertikale Polsterung für Links */
+                width: 100%; /* Links füllen die Breite aus */
+                text-align: left; /* Text links ausrichten */
+            }
+
+            .container {
+                padding: 20px; /* Weniger Padding auf mobilen Geräten */
+            }
+
+            .tool {
+                width: 90%; /* Breite der Tool-Box anpassen */
+                margin: 10px 0; /* Vertikaler Abstand zwischen den Boxen */
+            }
+
+            .cart {
+                width: 35px; /* Kleinere Größe für den Warenkorb */
+                height: 35px; /* Kleinere Höhe für den Warenkorb */
+            }
+        }
     </style>
 </head>
 <body>
@@ -242,57 +274,52 @@
                 <p class="tool-description">Setze Erinnerungen, damit du nie wieder etwas vergisst.</p>
             </div>
             <div class="tool">
-                <h3>Spiele</h3>
-                <p class="tool-description">Genieße eine Auswahl an unterhaltsamen Spielen für zwischendurch.</p>
+                <h3>Notizen</h3>
+                <p class="tool-description">Halte wichtige Informationen und Ideen schnell fest.</p>
             </div>
             <div class="tool">
-                <h3>KI Taschenrechner</h3>
-                <p class="tool-description">Berechne alles, was du brauchst, mit intelligenter Unterstützung.</p>
-            </div>
-            <div class="tool">
-                <h3>Word-Alternativen</h3>
-                <p class="tool-description">Finde nützliche Alternativen zu Microsoft Word für deine Dokumente.</p>
-            </div>
-            <div class="tool">
-                <h3>Datei-Konverter</h3>
-                <p class="tool-description">Konvertiere Dateien einfach und schnell in verschiedene Formate.</p>
+                <h3>Konverter</h3>
+                <p class="tool-description">Konvertiere Einheiten und Währungen schnell und einfach.</p>
             </div>
         </div>
 
         <!-- Premium Section -->
         <div class="premium" id="premium">
-            <h2>Premium-Modelle</h2>
-            <p>Kommt bald! Erhalte Zugang zu exklusiven Inhalten.</p>
+            <h2>Premium Tools</h2>
+            <p>Erhalte Zugang zu exklusiven Tools und Funktionen, die dir helfen, produktiver zu sein!</p>
+            <a href="premium.html">Hier mehr erfahren</a>
         </div>
 
         <!-- About Section -->
         <div class="about" id="about">
             <h2>Über uns</h2>
-            <p>Wir sind Schüler der 9. Klasse und haben dieses private Projekt gestartet, um nützliche Tools für den Alltag anzubieten.</p>
+            <p>Wir sind Schüler der 9. Klasse und haben dieses Projekt ins Leben gerufen, um nützliche Tools für den Alltag bereitzustellen.</p>
         </div>
 
         <!-- Support Section -->
         <div class="support">
             <h2>Support</h2>
-            <p>Hast du Fragen? Kontaktiere uns über unsere <a href="support.html">Support-Seite</a>.</p>
+            <p>Hast du Fragen oder benötigst du Hilfe? Kontaktiere uns über unsere <a href="support.html">Support-Seite</a>.</p>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
     </footer>
 
     <script>
-        // Highlighting text in the tool descriptions
         function highlightText() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const toolDescriptions = document.querySelectorAll('.tool-description');
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let descriptions = document.querySelectorAll('.tool-description');
 
-            toolDescriptions.forEach(description => {
-                const text = description.innerText;
-                const regex = new RegExp(`(${searchInput})`, 'gi');
-                description.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
+            descriptions.forEach(description => {
+                let text = description.textContent.toLowerCase();
+                if (text.includes(input) && input !== "") {
+                    description.classList.add('highlight');
+                } else {
+                    description.classList.remove('highlight');
+                }
             });
         }
     </script>
