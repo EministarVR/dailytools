@@ -28,10 +28,11 @@
             padding: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap; /* Erlaubt Umbruch bei kleinen Bildschirmen */
         }
 
         nav ul li {
-            margin: 0 20px;
+            margin: 0 10px;
         }
 
         nav ul li a {
@@ -105,6 +106,32 @@
             from { transform: translateY(-20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em; /* Kleinere Schrift für mobile Ansicht */
+            }
+
+            .premium-button {
+                font-size: 1.2em; /* Kleinere Schrift für die Buttons */
+                padding: 10px 20px; /* Weniger Padding für mobile Geräte */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em; /* Noch kleinere Schrift für sehr kleine Bildschirme */
+            }
+
+            nav ul li {
+                margin: 0 5px; /* Weniger Margin für mobile Ansicht */
+            }
+
+            .premium-button {
+                width: 90%; /* Maximale Breite für mobile Geräte */
+            }
+        }
     </style>
 </head>
 <body>
@@ -113,9 +140,9 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#tools">Tools</a></li>
-            <li><a href="index.html#premium">Premium</a></li>
-            <li><a href="index.html#about">Über uns</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="premium.html">Premium</a></li>
+            <li><a href="about.html">Über uns</a></li>
             <li><a href="support.html">Support</a></li>
         </ul>
     </nav>

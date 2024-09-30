@@ -27,11 +27,12 @@
             list-style: none;
             padding: 0;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
         }
 
         nav ul li {
-            margin: 0 20px;
+            margin: 0 10px;
         }
 
         nav ul li a {
@@ -62,20 +63,20 @@
 
         /* Support Container */
         .container {
-            padding: 40px;
+            padding: 20px; /* Reduziert für mobile Ansicht */
             text-align: center;
         }
 
-        .support-section {
+        .support-section, .bug-report, .faq {
             background: #1e1e1e;
             border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 15px; /* Reduziert für mobile Ansicht */
+            margin: 15px 0;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-in;
         }
 
-        /* Contact Form */
+        /* Kontaktformular */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -84,7 +85,7 @@
         }
 
         .contact-form input, .contact-form textarea {
-            width: 80%;
+            width: 90%; /* Erhöht für mobile Ansicht */
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #007aff;
@@ -113,26 +114,7 @@
             background: #00aaff;
         }
 
-        /* Bug Report Section */
-        .bug-report {
-            background: #1f1f1f;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in;
-        }
-
-        /* FAQ Section */
-        .faq {
-            background: #1f1f1f;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in;
-        }
-
+        /* FAQ Item */
         .faq h2 {
             margin-bottom: 10px;
             color: #007aff;
@@ -173,6 +155,31 @@
             from { transform: translateY(-20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em; /* Kleinere Schrift für mobile Ansicht */
+            }
+
+            nav ul li {
+                margin: 0 5px; /* Weniger Margin für mobile Ansicht */
+            }
+
+            .support-section, .bug-report, .faq {
+                padding: 10px; /* Noch weniger Padding für mobile Ansicht */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form input, .contact-form textarea {
+                width: 95%; /* Maximale Breite für mobile Geräte */
+            }
+
+            header h1 {
+                font-size: 1.5em; /* Kleinere Schrift für sehr kleine Bildschirme */
+            }
+        }
     </style>
 </head>
 <body>
@@ -181,9 +188,9 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#tools">Tools</a></li>
-            <li><a href="index.html#premium">Premium</a></li>
-            <li><a href="index.html#about">Über uns</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="premium.html">Premium</a></li>
+            <li><a href="about.html">Über uns</a></li>
             <li><a href="support.html">Support</a></li>
         </ul>
     </nav>
@@ -201,7 +208,7 @@
             <p>Wir sind hier, um dir zu helfen! Kontaktiere uns über das folgende Formular oder schau dir die häufig gestellten Fragen an.</p>
         </div>
 
-        <!-- Contact Form -->
+        <!-- Kontaktformular -->
         <div class="contact-form">
             <h2>Kontaktformular</h2>
             <input type="text" id="name" placeholder="Dein Name" required>
@@ -252,40 +259,27 @@
     <script>
         // FAQ Toggle
         const faqItems = document.querySelectorAll('.faq-item');
-
         faqItems.forEach(item => {
             item.addEventListener('click', () => {
-                const paragraph = item.querySelector('p');
-                paragraph.style.display = paragraph.style.display === 'none' ? 'block' : 'none';
+                const p = item.querySelector('p');
+                p.style.display = (p.style.display === 'block') ? 'none' : 'block';
             });
         });
 
-        // E-Mail Validierung
-        document.getElementById('submitBtn').addEventListener('click', async (event) => {
+        // Form Submission
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.addEventListener('click', (event) => {
             event.preventDefault();
-
-            const email = document.getElementById('email').value;
             const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            const responseMessage = document.getElementById('responseMessage');
 
-            // API-Anfrage zur E-Mail-Überprüfung
-            const apiUrl = `https://api.emailvalidation.com/validate?email=${encodeURIComponent(email)}&apiKey=DEIN_API_KEY`;
+            // Hier kann die Logik zum Senden der Nachricht hinzugefügt werden
 
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-
-                if (data.valid) {
-                    // Hier kannst du die Logik zum Senden der Nachricht hinzufügen
-                    responseMessage.textContent = 'Danke, deine Nachricht wurde gesendet!';
-                } else {
-                    responseMessage.textContent = 'Die eingegebene E-Mail-Adresse ist ungültig. Bitte überprüfe sie und versuche es erneut.';
-                }
-            } catch (error) {
-                console.error('Fehler bei der E-Mail-Überprüfung:', error);
-                responseMessage.textContent = 'Es gab ein Problem bei der E-Mail-Überprüfung. Bitte versuche es später erneut.';
-            }
+            document.getElementById('responseMessage').textContent = 'Vielen Dank für deine Nachricht, ' + name + '!';
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
         });
     </script>
 </body>

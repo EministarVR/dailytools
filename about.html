@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Über uns - Your Daily Tool. Lerne das Team hinter der Plattform kennen.">
+    <title>Über uns - Your Daily Tool</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Globale Stylesheet einbinden -->
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            transition: transform 0.5s;
+        }
+
+        header p {
+            margin: 10px 0;
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #1e1e1e;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #007aff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 50px auto;
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-in;
+        }
+
+        .about h2 {
+            color: #007aff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #ddd;
+        }
+
+        /* Team Section */
+        .team {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: #1f1f1f;
+            border-radius: 20px;
+            margin: 20px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Runde Form */
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member h3 {
+            color: #007aff;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        /* Strichmännchen-Profilbild für Milan */
+        .stick-figure {
+            width: 150px;
+            height: 150px;
+            background: transparent;
+            margin: 0 auto 20px;
+        }
+
+        .stick-figure .head {
+            width: 40px;
+            height: 40px;
+            background: #ddd;
+            border-radius: 50%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+        }
+
+        .stick-figure .body {
+            width: 5px;
+            height: 70px;
+            background: #ddd;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .stick-figure .arm {
+            width: 60px;
+            height: 5px;
+            background: #ddd;
+            position: absolute;
+            top: 20px;
+        }
+
+        .stick-figure .arm.left {
+            left: -30px;
+            transform: rotate(30deg);
+        }
+
+        .stick-figure .arm.right {
+            right: -30px;
+            transform: rotate(-30deg);
+        }
+
+        .stick-figure .leg {
+            width: 5px;
+            height: 70px;
+            background: #ddd;
+            position: absolute;
+            top: 70px;
+        }
+
+        .stick-figure .leg.left {
+            left: 10px;
+            transform: rotate(15deg);
+        }
+
+        .stick-figure .leg.right {
+            right: 10px;
+            transform: rotate(-15deg);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about {
+                padding: 30px;
+            }
+
+            .team-member {
+                width: 90%;
+                margin: 10px 0;
+            }
+
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Section -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">Über uns</a>
+        <a href="tools.html">Tools</a>
+        <a href="premium.html">Premium</a> <!-- Link zur Premium-Seite hinzugefügt -->
+        <a href="support.html">Support</a>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Über uns</h1>
+        <p>Das Team hinter Your Daily Tool</p>
+    </header>
+
+    <!-- About Section -->
+    <div class="about">
+        <h2>Unsere Geschichte</h2>
+        <p>
+            Your Daily Tool wurde von zwei ambitionierten Schülern ins Leben gerufen, die die Welt der Technik und Entwicklung bereits in jungen Jahren erkunden wollten. 
+            Wir glauben daran, dass Technologie den Alltag verbessern kann. Unsere Mission ist es, nützliche und einfach zu bedienende Werkzeuge zu entwickeln, die jedem zugänglich sind.
+        </p>
+        <p>
+            Wir haben dieses Projekt begonnen, um unsere eigenen Fähigkeiten zu verbessern und gleichzeitig etwas Sinnvolles zu schaffen. 
+            Dabei haben wir eine Vielzahl von Tools entwickelt, die wir kontinuierlich verbessern und erweitern, um sie noch benutzerfreundlicher und leistungsfähiger zu machen.
+        </p>
+        <h2>Das Team</h2>
+        <!-- Team Section -->
+        <div class="team">
+            <div class="team-member">
+                <img src="naelemin.png" alt="Nael-Emin Ben Oun">
+                <h3>Nael-Emin Ben Oun</h3>
+                <p>
+                    HTML und CSS Entwickler<br>
+                    Nael-Emin ist das kreative Genie hinter dem Design und Layout unserer Website. Seine Leidenschaft für Webentwicklung begann schon in der Grundschule. Heute sorgt er dafür, dass jede einzelne Seite perfekt gestaltet und intuitiv zu bedienen ist. Mit seinem Auge fürs Detail kreiert er ansprechende Benutzeroberflächen, die sowohl auf Desktop- als auch auf Mobilgeräten optimal aussehen. Sein Ziel ist es, jedes Projekt nicht nur funktional, sondern auch visuell beeindruckend zu machen. Neben seinen technischen Fähigkeiten ist Nael-Emin stets auf der Suche nach neuen Trends im Bereich UI/UX-Design.
+                </p>
+            </div>
+            <div class="team-member">
+                <div class="stick-figure">
+                    <div class="head"></div>
+                    <div class="body"></div>
+                    <div class="arm left"></div>
+                    <div class="arm right"></div>
+                    <div class="leg left"></div>
+                    <div class="leg right"></div>
+                </div>
+                <h3>Milan Pachulski</h3>
+                <p>
+                    Java und KI Entwickler<br>
+                    Milan ist der technische Kopf hinter den fortschrittlichen Features von Your Daily Tool. Leider kann ich gerade kein Bild von ihm zur Verfügung stellen, aber sein Wissen über Programmierung und KI ist beeindruckend. Er hat bereits mehrere Projekte umgesetzt, die Benutzererlebnisse verbessern und komplexe Probleme lösen. Milans Leidenschaft für die Programmierung zeigt sich in jedem Tool, das wir entwickeln. Er bleibt stets auf dem neuesten Stand der Technologie und bringt innovative Ideen in unser Team ein. In seiner Freizeit experimentiert Milan gerne mit neuen Programmiersprachen und Technologien, um seine Fähigkeiten weiter auszubauen.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
