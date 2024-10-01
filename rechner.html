@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KI Taschenrechner - Algebra leicht gemacht.">
+    <meta name="github-domain-verification" content="dailytool.de">
+    <title>KI Taschenrechner | Your Daily Tool</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 80px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin: 0 10px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #383838;
+            color: #007aff;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Calculator Box */
+        .calculator-box {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-box h3 {
+            color: #007aff;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        /* Display */
+        .display {
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 20px;
+            height: 60px; /* Höhe für das Display */
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Text rechtsbündig */
+        }
+
+        /* Button Styles */
+        .button {
+            background: #007aff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #0051a8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>KI Taschenrechner</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="support.html">Support</a>
+            <a href="premium.html">Premium</a>
+            <a href="about.html">Über uns</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="calculator-box">
+            <h3>Algebra Rechner</h3>
+            <div class="display" id="display">0</div>
+            <div>
+                <button class="button" onclick="appendNumber(1)">1</button>
+                <button class="button" onclick="appendNumber(2)">2</button>
+                <button class="button" onclick="appendNumber(3)">3</button>
+                <button class="button" onclick="setOperation('+')">+</button>
+            </div>
+            <div>
+                <button class="button" onclick="appendNumber(4)">4</button>
+                <button class="button" onclick="appendNumber(5)">5</button>
+                <button class="button" onclick="appendNumber(6)">6</button>
+                <button class="button" onclick="setOperation('-')">-</button>
+            </div>
+            <div>
+                <button class="button" onclick="appendNumber(7)">7</button>
+                <button class="button" onclick="appendNumber(8)">8</button>
+                <button class="button" onclick="appendNumber(9)">9</button>
+                <button class="button" onclick="setOperation('*')">*</button>
+            </div>
+            <div>
+                <button class="button" onclick="clearDisplay()">C</button>
+                <button class="button" onclick="appendNumber(0)">0</button>
+                <button class="button" onclick="calculateResult()">=</button>
+                <button class="button" onclick="setOperation('/')">/</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten. Es gelten unsere <a href="agb.html">AGB</a> </p>
+    </footer>
+
+    <script src="math.js"></script>
+</body>
+</html>
