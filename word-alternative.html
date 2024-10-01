@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta Feature | Word Alternative</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Vorlagen</h2>
+        <div id="template-menu">
+            <button onclick="toggleTemplates()">▼</button>
+            <div id="templates" style="display: none;">
+                <button onclick="addHeadingTemplate('H1')">Überschrift 1</button>
+                <button onclick="addHeadingTemplate('H2')">Überschrift 2</button>
+                <button onclick="addHeadingTemplate('H3')">Überschrift 3</button>
+            </div>
+        </div>
+        <div>
+            <input type="file" id="image-input" accept="image/*" onchange="insertImage(event)">
+        </div>
+        <div>
+            <h3>Textanpassung</h3>
+            <label for="font-select">Schriftart:</label>
+            <select id="font-select" onchange="changeFont(this.value)">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+            </select>
+            <label for="font-size">Schriftgröße:</label>
+            <input type="number" id="font-size" value="16" onchange="changeFontSize(this.value)" min="10">
+        </div>
+        <div>
+            <h3>Bildfilter</h3>
+            <select id="filter-select" onchange="applyFilter(this.value)">
+                <option value="none">Kein Filter</option>
+                <option value="blur(5px)">Unschärfe</option>
+                <option value="brightness(1.5)">Helligkeit</option>
+                <option value="contrast(2)">Kontrast</option>
+            </select>
+        </div>
+        <button onclick="showBetaMessage()">Bild drehen</button>
+        <button onclick="showBetaMessage()">Bildgröße anpassen</button>
+    </div>
+    <div id="editor">
+        <div id="canvas" style="width: 210mm; height: 297mm; border: 1px solid #ccc; position: relative; overflow: hidden;">
+            <!-- Hier werden Bilder und Inhalte eingefügt -->
+        </div>
+    </div>
+    <button id="download-btn">Download als PDF</button>
+
+    <!-- Beta-Feature Popup -->
+    <div id="beta-popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closeBetaMessage()">&times;</span>
+            <h2>Beta-Feature</h2>
+            <p>Dieses Feature befindet sich noch in der Beta-Phase und ist derzeit nicht benutzbar. Wir arbeiten daran, es in naher Zukunft verfügbar zu machen. Bitte haben Sie Geduld und bleiben Sie dran für aufregende Updates und Verbesserungen.</p>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
