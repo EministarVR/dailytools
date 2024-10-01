@@ -274,10 +274,6 @@
                 width: 100%; /* Volle Breite */
             }
 
-            .nav-links.active {
-                display: flex; /* Navigation wird angezeigt */
-            }
-
             .menu-toggle {
                 display: block; /* Zeige Menü-Button */
                 color: #e0e0e0;
@@ -301,25 +297,72 @@
         <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
+            <a href="support.html">Support</a>
             <a href="premium.html">Premium</a>
             <a href="about.html">Über uns</a>
-            <a href="support.html">Support</a>
         </div>
     </nav>
 
     <!-- Main Container -->
     <div class="container">
-        <h2>Willkommen bei Your Daily Tool</h2>
-        <p>Entdecke die besten Tools für deinen Alltag und steigere deine Produktivität.</p>
+        <h2>Unsere Tools</h2>
+        <div class="tools">
+            <div class="tool">
+                <h3>Konvertierungstool</h3>
+                <p>Einfaches Tool zur Umrechnung von Einheiten.</p>
+            </div>
+            <div class="tool">
+                <h3>Word-Alternative</h3>
+                <p>Bearbeite Dokumente online, ganz einfach.</p>
+            </div>
+            <div class="tool">
+                <h3>Notizen</h3>
+                <p>Halte deine Gedanken an einem Ort fest.</p>
+            </div>
+            <div class="tool">
+                <h3>KI Taschenrechner</h3>
+                <p>Berechnungen leicht gemacht mit KI Unterstützung.</p>
+            </div>
+            <div class="tool">
+                <h3>Und mehr!</h3>
+                <p>Entdecke noch mehr der Vielfalt von Your Daily Tool!</p>
+            </div>
+        </div>
+
+        <!-- Premium Section -->
+        <div class="premium">
+            <h2>Premium Modelle</h2>
+            <p>Erlebe exklusive Funktionen mit unserem Premium-Zugang. Achtung, dieses Feature ist noch in Entwicklung!</p>
+            <a href="premium.html" class="button">Jetzt Premium werden</a>
+        </div>
+
+        <!-- About Section -->
+        <div class="about">
+            <h2>Über uns</h2>
+            <p>Wir sind Nael-Emin Ben Oun und Milan Pachulski, Schüler der 9. Klasse. Unser Ziel ist es, nützliche Tools für den Alltag zu entwickeln.</p>
+            <a href="about.html" class="button">Mehr Erfahren!</a>
+        </div>
+
+        <!-- Support Section -->
+        <div class="support">
+            <h2>Support</h2>
+            <p>Hast du Fragen? Kontaktiere uns!</p>
+            <a href="support.html" class="button">Supportseite besuchen</a>
+        </div>
     </div>
 
-    <!-- Footer Section -->
+    <!-- Shopping Cart -->
+    <div class="cart" onclick="window.location.href='premium.html'">
+        🛒
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten. Es gelten unsere <a href="agb.html">AGB</a></p>
     </footer>
 
-    <!-- JavaScript für das Menü -->
     <script>
+        // Menü Toggle für mobile Ansicht
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
