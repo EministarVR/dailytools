@@ -46,7 +46,7 @@
         /* Navigation */
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Zentrierte Navigation */
             align-items: center;
             background: #1e1e1e;
             padding: 15px 20px;
@@ -172,6 +172,22 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007aff;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background: #0051a8;
+        }
+
         /* Footer */
         footer {
             background-color: #1e1e1e;
@@ -214,6 +230,21 @@
         @keyframes slideIn {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* KI Taschenrechner Box */
+        .calculator-box {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-box h3 {
+            color: #007aff;
+            font-size: 1.8em;
         }
 
         /* Responsive Styles */
@@ -264,78 +295,80 @@
         <div class="menu-toggle" id="menuToggle">☰</div> <!-- Menü-Button -->
         <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
-            <a href="tools.html">Tools</a>
+            <a href="tools.html">Tools </a>
+            <a href="support.html">Support</a>
             <a href="premium.html">Premium</a>
             <a href="about.html">Über uns</a>
-            <a href="support.html">Support</a> <!-- Verlinkung zur support.html -->
         </div>
-        <div class="cart">🛒</div>
     </nav>
 
     <!-- Main Container -->
     <div class="container">
         <h2>Unsere Tools</h2>
-
-        <!-- Tools Section -->
-        <div class="tools" id="tools">
+        <div class="tools">
             <div class="tool">
-                <h3>Kalender</h3>
-                <p class="tool-description">Organisiere deine Termine und behalte den Überblick über wichtige Ereignisse.</p>
-            </div>
-            <div class="tool">
-                <h3>Erinnerungen</h3>
-                <p class="tool-description">Setze Erinnerungen, damit du nie wieder etwas vergisst.</p>
-            </div>
-            <div class="tool">
-                <h3>KI-Rechner</h3>
-                <p class="tool-description"> Rechne schnell und einfach mit KI!</p>
-                <p>Nutze unseren <span class="highlight">KI-Rechner</span> für deine täglichen Rechnungen!</p>
-            </div>
-            <div class="tool">
-                <h3>Datei-Konverter</h3>
-                <p class="tool-description">Konvertiere Dateien zwischen verschiedenen Formaten mit Leichtigkeit.</p>
+                <h3>Konvertierungstool</h3>
+                <p>Einfaches Tool zur Umrechnung von Einheiten.</p>
+               
             </div>
             <div class="tool">
                 <h3>Word-Alternative</h3>
-                <p class="tool-description">Nutze unsere benutzerfreundliche Textverarbeitung als kostenlose Alternative zu Word.</p>
+                <p>Bearbeite Dokumente online, ganz einfach.</p>
+              
             </div>
-        </div>
+            <div class="tool">
+                <h3>Notizen</h3>
+                <p>Halte deine Gedanken an einem Ort fest.</p>
+            </div>
+            <div class="tool">
+                <h3>KI Taschenrechner</h3>
+                <p>Berechnungen leicht gemacht mit KI Unterstützung.</p>
+            </div>
+            <div    class="tool">
+                <h3>Und mehr!</h3>
+                <p>Entedecke noch mehr der Vielfalt von Your Daily Tool!</p>
+     </div>
+     </div>
 
         <!-- Premium Section -->
         <div class="premium">
             <h2>Premium Modelle</h2>
-            <p>Erlebe zusätzliche Funktionen mit unseren Premium-Modellen. <a href="premium.html">Hier klicken, um mehr zu erfahren!</a></p>
+            <p>Erlebe exklusive Funktionen mit unserem Premium-Zugang. Achtung, dieses Feature ist noch in Entwicklung!</p>
+            <a href="premium.html" class="button">Jetzt Premium werden</a>
         </div>
 
         <!-- About Section -->
-        <div class="about" id="about">
+        <div class="about">
             <h2>Über uns</h2>
-            <p>Wir bieten eine Sammlung nützlicher Tools, um deinen Alltag zu erleichtern und produktiver zu gestalten.</p>
+            <p>Wir sind Nael-Emin Ben Oun und Milan Pachulski, Schüler der 9. Klasse. Unser Ziel ist es, nützliche Tools für den Alltag zu entwickeln.</p>
+            <a href="about.html" class="button">Mehr Erfahren!</a>
         </div>
 
         <!-- Support Section -->
         <div class="support">
             <h2>Support</h2>
-            <p>Bei Fragen oder Anregungen wende dich an uns über die <a href="support.html">Support-Seite</a>.</p>
+            <p>Hast du Fragen? Kontaktiere uns!</p>
+            <a href="support.html" class="button">Supportseite besuchen</a>
         </div>
     </div>
 
-    <!-- Footer Section -->
+    <!-- Shopping Cart -->
+    <div class="cart" onclick="window.location.href='premium.html'">
+        🛒
+    </div>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten. Es gelten unsere <a href="agb.html">AGB</a> </p>
     </footer>
 
     <script>
-        // Menü-Toggle
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
+        // Menü Toggle für mobile Ansicht
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
 
-        menuToggle.addEventListener("click", () => {
-            if (navLinks.style.display === "flex") {
-                navLinks.style.display = "none"; // Verstecke Links
-            } else {
-                navLinks.style.display = "flex"; // Zeige Links
-            }
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     </script>
 </body>
