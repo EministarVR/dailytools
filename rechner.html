@@ -143,6 +143,31 @@
             from { transform: translateY(-20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        /* Media Queries für mobile Geräte */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em; /* Kleinere Schriftgröße für mobile Geräte */
+            }
+
+            nav {
+                flex-direction: column; /* Vertikale Anordnung der Navigationslinks */
+                align-items: flex-start; /* Links am Anfang ausrichten */
+            }
+
+            .nav-links {
+                flex-direction: column; /* Vertikale Anordnung der Links */
+                width: 100%; /* Volle Breite für das Menü */
+            }
+
+            .nav-links a {
+                padding: 10px; /* Weniger Padding für mobile Geräte */
+                width: 100%; /* Volle Breite für Links */
+                text-align: center; /* Zentrierte Links */
+                border-radius: 0; /* Keine abgerundeten Ecken */
+                margin: 5px 0; /* Abstand zwischen den Links */
+            }
+        }
     </style>
 </head>
 <body>
