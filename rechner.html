@@ -21,7 +21,7 @@
         /* Header */
         header {
             background: linear-gradient(135deg, #1e1e1e, #383838);
-            padding: 80px 20px;
+            padding: 60px 20px; /* Weniger Padding oben */
             color: white;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -36,7 +36,7 @@
         /* Navigation */
         nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             background: #1e1e1e;
             padding: 15px 20px;
@@ -48,6 +48,8 @@
 
         .nav-links {
             display: flex;
+            transition: max-height 0.3s ease;
+            overflow: hidden; /* Versteckt die Links, wenn das Menü zu ist */
         }
 
         .nav-links a {
@@ -62,6 +64,14 @@
         .nav-links a:hover {
             background: #383838;
             color: #007aff;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 2em;
+            cursor: pointer;
         }
 
         /* Main Container */
@@ -150,14 +160,19 @@
                 font-size: 2.5em; /* Kleinere Schriftgröße für mobile Geräte */
             }
 
-            nav {
-                flex-direction: column; /* Vertikale Anordnung der Navigationslinks */
-                align-items: flex-start; /* Links am Anfang ausrichten */
-            }
-
             .nav-links {
                 flex-direction: column; /* Vertikale Anordnung der Links */
-                width: 100%; /* Volle Breite für das Menü */
+                max-height: 0; /* Standardmäßig versteckt */
+                overflow: hidden; /* Versteckt Links */
+            }
+
+            .nav-links.open {
+                max-height: 200px; /* Maximale Höhe, wenn geöffnet */
+            }
+
+            nav {
+                flex-direction: column; /* Vertikale Anordnung für mobile Geräte */
+                align-items: flex-start; /* Links am Anfang ausrichten */
             }
 
             .nav-links a {
@@ -178,7 +193,8 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <div class="nav-links">
+        <button class="menu-button" onclick="toggleMenu()">&#9776;</button>
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="support.html">Support</a>
@@ -225,5 +241,12 @@
     </footer>
 
     <script src="math.js"></script>
+    <script>
+        // Funktion zum Umschalten des Menüs
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('open'); // Toggle die Klasse 'open'
+        }
+    </script>
 </body>
 </html>
