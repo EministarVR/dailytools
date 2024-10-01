@@ -57,6 +57,54 @@
             text-decoration: underline;
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none; /* Initially hidden */
+            cursor: pointer;
+            padding: 15px;
+            background: #1e1e1e;
+            color: #007aff;
+            font-size: 1.5em;
+            border: none;
+        }
+
+        .hamburger:hover {
+            background: #383838;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: #1e1e1e;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        .sidebar a {
+            display: block;
+            color: #007aff;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-bottom: 1px solid #383838;
+            margin: 5px 0;
+        }
+
+        .sidebar a:hover {
+            background: #383838;
+        }
+
+        .sidebar.active {
+            transform: translateX(0); /* Show sidebar */
+        }
+
         /* About Section */
         .about {
             max-width: 1200px;
@@ -125,74 +173,18 @@
             color: #ddd;
         }
 
-        /* Strichmännchen-Profilbild für Milan */
-        .stick-figure {
-            width: 150px;
-            height: 150px;
-            background: transparent;
-            margin: 0 auto 20px;
-        }
-
-        .stick-figure .head {
-            width: 40px;
-            height: 40px;
-            background: #ddd;
-            border-radius: 50%;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-bottom: 10px;
-        }
-
-        .stick-figure .body {
-            width: 5px;
-            height: 70px;
-            background: #ddd;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .stick-figure .arm {
-            width: 60px;
-            height: 5px;
-            background: #ddd;
-            position: absolute;
-            top: 20px;
-        }
-
-        .stick-figure .arm.left {
-            left: -30px;
-            transform: rotate(30deg);
-        }
-
-        .stick-figure .arm.right {
-            right: -30px;
-            transform: rotate(-30deg);
-        }
-
-        .stick-figure .leg {
-            width: 5px;
-            height: 70px;
-            background: #ddd;
-            position: absolute;
-            top: 70px;
-        }
-
-        .stick-figure .leg.left {
-            left: 10px;
-            transform: rotate(15deg);
-        }
-
-        .stick-figure .leg.right {
-            right: 10px;
-            transform: rotate(-15deg);
-        }
-
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .about {
-                padding: 30px;
+            nav {
+                display: none; /* Hide navigation */
+            }
+
+            .hamburger {
+                display: block; /* Show hamburger menu */
+            }
+
+            .team {
+                flex-direction: column; /* Stack team members */
             }
 
             .team-member {
@@ -219,6 +211,18 @@
     </style>
 </head>
 <body>
+    <!-- Hamburger Menu -->
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über uns</a>
+        <a href="tools.html">Tools</a>
+        <a href="premium.html">Premium</a>
+        <a href="support.html">Support</a>
+    </div>
+
     <!-- Navigation Section -->
     <nav>
         <a href="index.html">Startseite</a>
@@ -253,26 +257,25 @@
                 <h3>Nael-Emin Ben Oun</h3>
                 <p>
                     HTML und CSS Entwickler<br>
-                    Nael-Emin ist das kreative Genie hinter dem Design und Layout unserer Website. Seine Leidenschaft für Webentwicklung begann schon in der Grundschule. Heute sorgt er dafür, dass jede einzelne Seite perfekt gestaltet und intuitiv zu bedienen ist. Mit seinem Auge fürs Detail kreiert er ansprechende Benutzeroberflächen, die sowohl auf Desktop- als auch auf Mobilgeräten optimal aussehen. Sein Ziel ist es, jedes Projekt nicht nur funktional, sondern auch visuell beeindruckend zu machen. Neben seinen technischen Fähigkeiten ist Nael-Emin stets auf der Suche nach neuen Trends im Bereich UI/UX-Design.
+                    Nael-Emin ist das kreative Genie hinter dem Design und Layout unserer Website. Seine Leidenschaft für Webentwicklung begann schon in der Grundschule. Heute sorgt er dafür, dass jede einzelne Seite perfekt gestaltet und intuitiv zu bedienen ist. Mit seinem Auge fürs Detail kreiert er ansprechende Benutzeroberflächen, die sowohl auf Desktop- als auch auf Mobilgeräten optimal aussehen. Sein Ziel ist es, jedes Projekt nicht nur funktional, sondern auch visuell beeindruckend zu machen. Neben seinen technischen Fähigkeiten ist Nael-Emin auch ein begeisterter Problemlöser und optimiert ständig die Effizienz des Codes.
                 </p>
             </div>
             <div class="team-member">
-                <div class="stick-figure">
-                    <div class="head"></div>
-                    <div class="body"></div>
-                    <div class="arm left"></div>
-                    <div class="arm right"></div>
-                    <div class="leg left"></div>
-                    <div class="leg right"></div>
-                </div>
+                <img src="milan.png" alt="Milan Pachulski">
                 <h3>Milan Pachulski</h3>
                 <p>
-                    Java und KI Entwickler<br>
-                    Milan ist der technische Kopf hinter den fortschrittlichen Features von Your Daily Tool. Leider kann ich gerade kein Bild von ihm zur Verfügung stellen, aber sein Wissen über Programmierung und KI ist beeindruckend. Er hat bereits mehrere Projekte umgesetzt, die Benutzererlebnisse verbessern und komplexe Probleme lösen. Milans Leidenschaft für die Programmierung zeigt sich in jedem Tool, das wir entwickeln. Er bleibt stets auf dem neuesten Stand der Technologie und bringt innovative Ideen in unser Team ein. In seiner Freizeit experimentiert Milan gerne mit neuen Programmiersprachen und Technologien, um seine Fähigkeiten weiter auszubauen.
+                    Backend Entwickler und Programmierer<br>
+                    Milan ist verantwortlich für das Backend und die Logik unserer Tools. Von der Datenverarbeitung bis hin zur Implementierung komplexer Algorithmen – Milan hat das technische Know-how, um selbst die anspruchsvollsten Aufgaben zu meistern. Seine Leidenschaft liegt im Schreiben von sauberem und effizientem Code. Mit seiner Expertise stellt er sicher, dass unsere Anwendungen reibungslos funktionieren und jeder Benutzer ein nahtloses Erlebnis hat. Zudem bringt Milan eine analytische Denkweise mit, die es ihm ermöglicht, innovative Lösungen für knifflige Herausforderungen zu entwickeln.
                 </p>
             </div>
         </div>
     </div>
 
+    <!-- JavaScript -->
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
