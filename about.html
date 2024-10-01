@@ -3,199 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Über uns - Your Daily Tool. Lerne das Team hinter der Plattform kennen.">
     <title>Über uns - Your Daily Tool</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Globale Stylesheet einbinden -->
     <style>
-        /* Global Styles */
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', sans-serif;
+        body {
             background-color: #121212;
             color: #e0e0e0;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1e1e1e, #383838);
-            padding: 60px 20px;
-            color: white;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1s ease-in;
-        }
-
-        header h1 {
-            font-size: 2.8em;
+            font-family: Arial, sans-serif;
             margin: 0;
-            transition: transform 0.5s;
+            padding: 0;
         }
 
-        header p {
-            margin: 10px 0;
-            font-size: 1.2em;
-            opacity: 0.8;
-        }
-
-        /* Navigation */
-        nav {
+        /* Navigation Bar */
+        .navbar {
+            background-color: #1e1e1e;
+            padding: 15px 50px;
             display: flex;
-            justify-content: center;
-            background: #1e1e1e;
-            padding: 15px;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333;
         }
 
-        nav a {
-            color: #007aff;
+        .navbar a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 18px;
             margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.1em;
+            transition: color 0.3s ease;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        .navbar a:hover {
+            color: #4CAF50; /* Grün als Hover-Effekt */
         }
 
-        /* Hamburger Menu */
-        .hamburger {
-            display: none; /* Initially hidden */
-            cursor: pointer;
-            padding: 15px;
-            background: #1e1e1e;
-            color: #007aff;
-            font-size: 1.5em;
-            border: none;
-        }
-
-        .hamburger:hover {
-            background: #383838;
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100%;
-            background: #1e1e1e;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(-100%);
-        }
-
-        .sidebar a {
-            display: block;
-            color: #007aff;
-            padding: 15px;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-bottom: 1px solid #383838;
-            margin: 5px 0;
-        }
-
-        .sidebar a:hover {
-            background: #383838;
-        }
-
-        .sidebar.active {
-            transform: translateX(0); /* Show sidebar */
-        }
-
-        /* About Section */
-        .about {
-            max-width: 1200px;
-            margin: 50px auto;
-            background: #1e1e1e;
-            border-radius: 10px;
+        /* Header Section */
+        .header {
+            background-color: #1e1e1e;
             padding: 40px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: slideIn 1s ease-in;
+            border-bottom: 2px solid #333;
         }
 
-        .about h2 {
-            color: #007aff;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
         }
 
-        .about p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin: 20px 0;
-            color: #ddd;
+        .header p {
+            font-size: 18px;
+            margin: 5px 0 0;
+            color: #a0a0a0;
+        }
+
+        /* Story Section */
+        .story-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 18px;
+            color: #c0c0c0;
+            animation: fadeIn 2s ease-in-out;
         }
 
         /* Team Section */
-        .team {
+        .team-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: row;
+            justify-content: space-around;
             flex-wrap: wrap;
-            margin-top: 50px;
+            animation: slideIn 1.5s ease-in-out;
         }
 
         .team-member {
-            background: #1f1f1f;
-            border-radius: 20px;
-            margin: 20px;
-            padding: 30px;
-            width: 300px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            flex: 1;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .team-member img {
+            border-radius: 50%;
             width: 150px;
             height: 150px;
-            border-radius: 50%; /* Runde Form */
-            object-fit: cover;
             margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .team-member h3 {
-            color: #007aff;
-            font-size: 1.5em;
-            margin-bottom: 10px;
+        .team-member h2 {
+            font-size: 24px;
+            margin: 10px 0;
         }
 
         .team-member p {
-            font-size: 1em;
-            color: #ddd;
+            font-size: 16px;
+            color: #c0c0c0;
+            line-height: 1.5;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            nav {
-                display: none; /* Hide navigation */
-            }
+        /* Footer */
+        footer {
+            background-color: #1e1e1e;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #333;
+        }
 
-            .hamburger {
-                display: block; /* Show hamburger menu */
-            }
-
-            .team {
-                flex-direction: column; /* Stack team members */
-            }
-
-            .team-member {
-                width: 90%;
-                margin: 10px 0;
-            }
-
-            .team-member img {
-                width: 120px;
-                height: 120px;
-            }
+        footer p {
+            margin: 0;
+            color: #a0a0a0;
+            font-size: 14px;
         }
 
         /* Animations */
@@ -205,77 +134,71 @@
         }
 
         @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
         }
     </style>
 </head>
 <body>
-    <!-- Hamburger Menu -->
-    <button class="hamburger" onclick="toggleSidebar()">☰</button>
-    
-    <!-- Sidebar Navigation -->
-    <div class="sidebar" id="sidebar">
-        <a href="index.html">Startseite</a>
-        <a href="about.html">Über uns</a>
-        <a href="tools.html">Tools</a>
-        <a href="premium.html">Premium</a>
-        <a href="support.html">Support</a>
-    </div>
 
-    <!-- Navigation Section -->
-    <nav>
-        <a href="index.html">Startseite</a>
-        <a href="about.html">Über uns</a>
-        <a href="tools.html">Tools</a>
-        <a href="premium.html">Premium</a> <!-- Link zur Premium-Seite hinzugefügt -->
-        <a href="support.html">Support</a>
-    </nav>
-
-    <!-- Header Section -->
-    <header>
-        <h1>Über uns</h1>
-        <p>Das Team hinter Your Daily Tool</p>
-    </header>
-
-    <!-- About Section -->
-    <div class="about">
-        <h2>Unsere Geschichte</h2>
-        <p>
-            Your Daily Tool wurde von zwei ambitionierten Schülern ins Leben gerufen, die die Welt der Technik und Entwicklung bereits in jungen Jahren erkunden wollten. 
-            Wir glauben daran, dass Technologie den Alltag verbessern kann. Unsere Mission ist es, nützliche und einfach zu bedienende Werkzeuge zu entwickeln, die jedem zugänglich sind.
-        </p>
-        <p>
-            Wir haben dieses Projekt begonnen, um unsere eigenen Fähigkeiten zu verbessern und gleichzeitig etwas Sinnvolles zu schaffen. 
-            Dabei haben wir eine Vielzahl von Tools entwickelt, die wir kontinuierlich verbessern und erweitern, um sie noch benutzerfreundlicher und leistungsfähiger zu machen.
-        </p>
-        <h2>Das Team</h2>
-        <!-- Team Section -->
-        <div class="team">
-            <div class="team-member">
-                <img src="naelemin.png" alt="Nael-Emin Ben Oun">
-                <h3>Nael-Emin Ben Oun</h3>
-                <p>
-                    HTML und CSS Entwickler<br>
-                    Nael-Emin ist das kreative Genie hinter dem Design und Layout unserer Website. Seine Leidenschaft für Webentwicklung begann schon in der Grundschule. Heute sorgt er dafür, dass jede einzelne Seite perfekt gestaltet und intuitiv zu bedienen ist. Mit seinem Auge fürs Detail kreiert er ansprechende Benutzeroberflächen, die sowohl auf Desktop- als auch auf Mobilgeräten optimal aussehen. Sein Ziel ist es, jedes Projekt nicht nur funktional, sondern auch visuell beeindruckend zu machen. Neben seinen technischen Fähigkeiten ist Nael-Emin auch ein begeisterter Problemlöser und optimiert ständig die Effizienz des Codes.
-                </p>
-            </div>
-            <div class="team-member">
-                <img src="milan.png" alt="Milan Pachulski">
-                <h3>Milan Pachulski</h3>
-                <p>
-                    Backend Entwickler und Programmierer<br>
-                    Milan ist verantwortlich für das Backend und die Logik unserer Tools. Von der Datenverarbeitung bis hin zur Implementierung komplexer Algorithmen – Milan hat das technische Know-how, um selbst die anspruchsvollsten Aufgaben zu meistern. Seine Leidenschaft liegt im Schreiben von sauberem und effizientem Code. Mit seiner Expertise stellt er sicher, dass unsere Anwendungen reibungslos funktionieren und jeder Benutzer ein nahtloses Erlebnis hat. Zudem bringt Milan eine analytische Denkweise mit, die es ihm ermöglicht, innovative Lösungen für knifflige Herausforderungen zu entwickeln.
-                </p>
-            </div>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html">Your Daily Tool</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Startseite</a>
+            <a href="about.html">Über uns</a>
+            <a href="tools.html">Tools</a>
+            <a href="premium.html">Premium</a>
+            <a href="support.html">Support</a>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script>
-        function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("active");
-        }
-    </script>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Über uns</h1>
+        <p>Das Team hinter Your Daily Tool</p>
+    </div>
+
+    <!-- Story Section -->
+    <div class="story-section">
+        <h2>Unsere Geschichte</h2>
+        <p>Wir sind Schüler der neunten Klasse, die ohne jegliche Vorkenntnisse dieses Projekt auf die Beine gestellt haben. 
+            Unsere Leidenschaft für Technik und Entwicklung hat uns dazu bewegt, uns intensiver mit Programmierung und 
+            Webdesign auseinanderzusetzen. Was als kleines Experiment begann, hat sich schnell zu einem ehrgeizigen Projekt 
+            entwickelt, das immer mehr an Umfang und Funktionalität gewonnen hat.</p>
+        <p>Unser Ziel ist es, benutzerfreundliche und funktionelle Tools zu entwickeln, die den Alltag erleichtern und die 
+            Technologie für alle zugänglich machen. Obwohl wir noch am Anfang stehen, streben wir danach, unsere Plattform 
+            stetig zu verbessern und weiterzuentwickeln. Wir freuen uns darauf, euch mit neuen Features zu überraschen und 
+            unsere Tools immer weiter auszubauen.</p>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-section">
+        <div class="team-member">
+            <img src="naelemin.png" alt="Nael-Emin Ben Oun">
+            <h2>Nael-Emin Ben Oun</h2>
+            <p>HTML und CSS Enthusiast. Nael-Emin ist das kreative Mastermind hinter dem Design und Layout der Website. 
+                Seine Leidenschaft für Webentwicklung begann schon in der Grundschule. Heute sorgt er dafür, dass jede einzelne 
+                Seite perfekt gestaltet und intuitiv zu bedienen ist. Sein Augenmerk liegt auf der kontinuierlichen Verbesserung 
+                der Benutzerfreundlichkeit und der Gestaltung von Tools, die optisch ansprechend und funktional sind.</p>
+        </div>
+
+        <div class="team-member">
+            <img src="pixelated_milan.png" alt="Milan Pachulski">
+            <h2>Milan Pachulski</h2>
+            <p>Backend Entwickler und Programmierer. Milan ist verantwortlich für das Backend und die Logik unserer Tools. 
+                Von der Datenverarbeitung bis hin zur Implementierung komplexer Algorithmen – Milan hat das technische Know-how, 
+                um auch die anspruchsvollsten Aufgaben zu meistern. Seine Reise in die Welt der Programmierung begann mit ersten 
+                kleinen Projekten, die er immer weiter ausbaute, bis er schließlich ein umfangreiches Wissen in der Backend-Entwicklung 
+                erlangte. Heute sorgt er dafür, dass alles reibungslos funktioniert und kontinuierlich optimiert wird.</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>
