@@ -14,22 +14,20 @@
             font-family: 'Helvetica Neue', sans-serif;
             background-color: #121212;
             color: #e0e0e0;
-            overflow-x: hidden; /* Verhindert horizontales Scrollen */
         }
 
         /* Header */
         header {
             background: linear-gradient(135deg, #1e1e1e, #383838);
-            padding: 40px 20px;
+            padding: 60px 20px;
             color: white;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1s ease-in;
-            margin-bottom: 20px; /* Abstand zum Inhalt darunter */
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin: 0;
             transition: transform 0.5s;
         }
@@ -89,7 +87,6 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px; /* Abstand zwischen den Teammitgliedern */
             margin-top: 50px;
         }
 
@@ -101,7 +98,6 @@
             width: 300px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            flex-shrink: 0; /* Verhindert, dass Elemente bei kleineren Bildschirmen zu eng werden */
         }
 
         .team-member:hover {
@@ -112,7 +108,7 @@
         .team-member img {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
+            border-radius: 50%; /* Runde Form */
             object-fit: cover;
             margin-bottom: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -127,10 +123,9 @@
         .team-member p {
             font-size: 1em;
             color: #ddd;
-            text-align: left; /* Linksbündig für bessere Lesbarkeit */
         }
 
-        /* Stick Figure Profile for Milan */
+        /* Strichmännchen-Profilbild für Milan */
         .stick-figure {
             width: 150px;
             height: 150px;
@@ -200,11 +195,6 @@
                 padding: 30px;
             }
 
-            .team {
-                flex-direction: column;
-                align-items: center;
-            }
-
             .team-member {
                 width: 90%;
                 margin: 10px 0;
@@ -231,10 +221,10 @@
 <body>
     <!-- Navigation Section -->
     <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html">Startseite</a>
         <a href="about.html">Über uns</a>
         <a href="tools.html">Tools</a>
-        <a href="premium.html">Premium</a>
+        <a href="premium.html">Premium</a> <!-- Link zur Premium-Seite hinzugefügt -->
         <a href="support.html">Support</a>
     </nav>
 
@@ -263,11 +253,10 @@
                 <h3>Nael-Emin Ben Oun</h3>
                 <p>
                     HTML und CSS Entwickler<br>
-                    Nael-Emin ist das kreative Genie hinter dem Design und Layout unserer Website. Seine Leidenschaft für Webentwicklung begann schon in der Grundschule. Heute sorgt er dafür, dass jede einzelne Seite perfekt gestaltet und intuitiv zu bedienen ist. Mit seinem Auge fürs Detail kreiert er ansprechende Benutzeroberflächen, die sowohl auf Desktop- als auch auf Mobilgeräten überzeugen.
+                    Nael-Emin ist das kreative Genie hinter dem Design und Layout unserer Website. Seine Leidenschaft für Webentwicklung begann schon in der Grundschule. Heute sorgt er dafür, dass jede einzelne Seite perfekt gestaltet und intuitiv zu bedienen ist. Mit seinem Auge fürs Detail kreiert er ansprechende Benutzeroberflächen, die sowohl auf Desktop- als auch auf Mobilgeräten optimal aussehen. Sein Ziel ist es, jedes Projekt nicht nur funktional, sondern auch visuell beeindruckend zu machen. Neben seinen technischen Fähigkeiten ist Nael-Emin stets auf der Suche nach neuen Trends im Bereich UI/UX-Design.
                 </p>
             </div>
             <div class="team-member">
-                <!-- Stick Figure -->
                 <div class="stick-figure">
                     <div class="head"></div>
                     <div class="body"></div>
@@ -278,11 +267,12 @@
                 </div>
                 <h3>Milan Pachulski</h3>
                 <p>
-                    Programmierer und Logik-Designer<br>
-                    Milan ist das logische Gehirn hinter der Entwicklung. Mit fundierten Kenntnissen in JavaScript und Algorithmen sorgt er dafür, dass alle Tools zuverlässig und effizient funktionieren. Von der Implementierung bis zur Optimierung behält Milan den Überblick und bringt innovative Ideen ein.
+                    Java und KI Entwickler<br>
+                    Milan ist der technische Kopf hinter den fortschrittlichen Features von Your Daily Tool. Leider kann ich gerade kein Bild von ihm zur Verfügung stellen, aber sein Wissen über Programmierung und KI ist beeindruckend. Er hat bereits mehrere Projekte umgesetzt, die Benutzererlebnisse verbessern und komplexe Probleme lösen. Milans Leidenschaft für die Programmierung zeigt sich in jedem Tool, das wir entwickeln. Er bleibt stets auf dem neuesten Stand der Technologie und bringt innovative Ideen in unser Team ein. In seiner Freizeit experimentiert Milan gerne mit neuen Programmiersprachen und Technologien, um seine Fähigkeiten weiter auszubauen.
                 </p>
             </div>
         </div>
     </div>
+
 </body>
 </html>
