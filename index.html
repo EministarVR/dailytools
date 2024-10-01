@@ -266,14 +266,14 @@
                 align-items: flex-start; /* Links ausrichten */
             }
 
-            nav a {
-                margin: 5px 0; /* Abstand zwischen Links */
-            }
-
             .nav-links {
                 display: none; /* Verstecke Links standardmäßig */
                 flex-direction: column; /* Links untereinander */
                 width: 100%; /* Volle Breite */
+            }
+
+            .nav-links.active {
+                display: flex; /* Zeige Links, wenn aktiv */
             }
 
             .menu-toggle {
@@ -295,85 +295,58 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <div class="menu-toggle" id="menuToggle">☰</div>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html"> Home </a>
-            <a href="tools.html">Tools</a>
-            <a href="premium.html">Premium</a>
-            <a href="about.html">Über uns</a>
-            <a href="support.html">Support</a>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#tools">Tools</a>
+            <a href="#premium">Premium</a>
+            <a href="#about">Über uns</a>
+            <a href="#support">Support</a>
         </div>
     </nav>
 
     <!-- Main Container -->
-    <div class="container">
-        <h2 id="tools">Nützliche Tools</h2>
-        <div class="tools">
-            <div class="tool" onclick="window.location.href='rechner.html'">
-                <h3>KI Taschenrechner</h3>
-                <p>Führe komplexe Berechnungen mit unserer KI durch.</p>
+    <div class="container" id="home">
+        <h2>Willkommen bei Your Daily Tool!</h2>
+        <div class="tools" id="tools">
+            <div class="tool" onclick="location.href='tool1.html'">
+                <h3>Tool 1</h3>
+                <p>Dies ist eine Beschreibung für Tool 1. Es hilft dir, deine täglichen Aufgaben effizienter zu erledigen.</p>
             </div>
-            <div class="tool" onclick="window.location.href='tools.html'">
-                <h3> Kalender</h3>
-                <p>Schreibe dir alle wichtigen Termine auf mit dem Daily Tools Kalender!</p>
+            <div class="tool" onclick="location.href='tool2.html'">
+                <h3>Tool 2</h3>
+                <p>Dies ist eine Beschreibung für Tool 2. Mit diesem Tool kannst du Zeit sparen und deine Produktivität steigern.</p>
             </div>
-            <div class="tool" onclick="window.location.href='tools.html'">
-                <h3>Word Alternative</h3>
-                <p>Die beste gratis Word Alternative die es gibt!</p>
-            </div>
-            <div class="tool" onclick="window.location.href='tools.html'">
-                <h3>Erinnerungen</h3>
-                <p>Schreib dir zum Beispiel deine Einkaufsliste mit unseren Erinnerungen!</p>
-            </div>
-            <div class="tool" onclick="window.location.href='tools.html'">
-                <h3>Konvertieren</h3>
-                <p>Benutze unser super schnelles Konvertierungs Tool! </p>
-            </div>
-            <div class="tool" onclick="window.location.href='tools.html'">
-                    <h3>Und mehr!</h3>
-                    <p>Wir haben noch viel mehr im Angebot!</p>
+            <div class="tool" onclick="location.href='tool3.html'">
+                <h3>Tool 3</h3>
+                <p>Dies ist eine Beschreibung für Tool 3. Es bietet dir eine Vielzahl von Funktionen, um deine Arbeit zu erleichtern.</p>
             </div>
         </div>
-
-        <!-- Premium Section -->
         <div class="premium" id="premium">
-            <h2>Premium-Modelle</h2>
-            <p>Erhalte Zugriff auf exklusive Funktionen und Tools.</p>
+            <h2>Premium Modelle</h2>
+            <p>Erhalte Zugriff auf exklusive Tools und Funktionen!</p>
             <a href="premium.html" class="button">Jetzt Premium werden</a>
         </div>
-
-        <!-- About Section -->
         <div class="about" id="about">
             <h2>Über uns</h2>
-            <p>Wir sind Nael-Emin Ben Oun und Milan Pachulski, Schüler der 9. Klasse. Unser Ziel ist es, dir die besten Tools für deinen Alltag zur Verfügung zu stellen.</p>
-            <a href="about.html" class="button">Mehr über uns!</a>
+            <p>Wir sind Nael-Emin Ben Oun und Milan Pachulski, Schüler der 9. Klasse.</p>
         </div>
-
-        <!-- Support Section -->
         <div class="support" id="support">
             <h2>Support</h2>
-            <p>Wenn du Hilfe benötigst, kontaktiere uns bitte über Discord.</p>
-            <a href="support.html" class="button">Kontaktiere uns!</a>
+            <p>Für Unterstützung und Fragen, kontaktiere uns!</p>
         </div>
-    </div>
-
-    <!-- Shopping Cart -->
-    <div class="cart" onclick="window.location.href='cart.html'">
-        🛒
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
+        &copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.
     </footer>
 
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-links');
-        });
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active'); // Toggle die Sichtbarkeit der Links
+        }
     </script>
 </body>
 </html>
