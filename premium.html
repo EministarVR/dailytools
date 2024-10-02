@@ -6,6 +6,8 @@
     <meta name="description" content="Premium-Tools von Your Daily Tool">
     <title>Premium - Your Daily Tool</title>
     <link rel="icon" href="logo.ico" type="image/x-icon">
+    <!-- PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AXe7apL-RH_zOMn_0I3xABo0kfx9gIdELbXLsjmKar_ueVwxnw_A_2__AtE6gHgT3SbzuY-Z5pg8pbCO&currency=EUR"></script>
     <style>
         body, html {
             margin: 0;
@@ -86,6 +88,12 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
+        /* PayPal Container */
+        .paypal-button-container {
+            display: inline-block;
+            margin: 20px 0;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -163,12 +171,36 @@
             <button class="premium-button" onclick="alert('Du hast das Paket 2 gewählt!')">Premium Paket 2</button>
             <button class="premium-button" onclick="alert('Du hast das Paket 3 gewählt!')">Premium Paket 3</button>
         </div>
+
+        <!-- PayPal Button Container -->
+        <div id="paypal-button-container" class="paypal-button-container"></div>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
     </footer>
+
+    <!-- PayPal Button Script -->
+    <script>
+        // Rendern des PayPal-Buttons
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '9.99' // Preis für das Premium-Paket (ändern nach Bedarf)
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Zahlung erfolgreich abgeschlossen. Vielen Dank, ' + details.payer.name.given_name + '!');
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
 
 </body>
 </html>
