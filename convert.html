@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Daily Tool - Datei-Konvertierungstool.">
+    <title>Datei-Konvertierungstool</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s ease, color 0.3s ease;
+            margin: 5px;
+        }
+
+        .nav-links a:hover {
+            background: #383838;
+            color: #007aff;
+        }
+
+        /* Container */
+        .container {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .container p {
+            font-size: 1.2em;
+        }
+
+        /* Converter Section */
+        .converter-box {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .converter-box input, .converter-box select, .converter-box button {
+            margin: 10px;
+            padding: 10px;
+            width: 100%;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 1.1em;
+        }
+
+        .converter-box input[type="file"] {
+            background: #2f2f2f;
+            color: #e0e0e0;
+        }
+
+        .converter-box select {
+            background: #2f2f2f;
+            color: #e0e0e0;
+        }
+
+        .converter-box button {
+            background: #007aff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .converter-box button:hover {
+            background: #0051a8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .converter-box {
+                width: 90%;
+            }
+
+            .container h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="premium.html">Premium</a>
+            <a href="about.html">Über uns</a>
+            <a href="support.html">Support</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h2>Datei-Konvertierungstool</h2>
+        <p>Wandle deine Dateien einfach in verschiedene Formate um.</p>
+
+        <!-- Converter Box -->
+        <div class="converter-box">
+            <form id="converterForm">
+                <label for="fileUpload">Wähle eine Datei aus:</label><br>
+                <input type="file" id="fileUpload" accept=".jpg, .png, .avif, .webp, .jpeg"><br>
+
+                <label for="formatSelect">Wähle das Zielformat:</label><br>
+                <select id="formatSelect">
+                    <option value="png">PNG</option>
+                    <option value="jpg">JPG</option>
+                    <option value="webp">WebP</option>
+                    <option value="avif">AVIF</option>
+                </select><br>
+
+                <button type="button" onclick="convertFile()">Umwandeln</button>
+            </form>
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Your Daily Tool. Alle Rechte vorbehalten. <a href="agb.html">AGB</a>
+    </footer>
+
+    <script>
+        function convertFile() {
+            const fileInput = document.getElementById('fileUpload');
+            const formatSelect = document.getElementById('formatSelect');
+
+            if (fileInput.files.length === 0) {
+                alert('Bitte wähle eine Datei aus.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const targetFormat = formatSelect.value;
+
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+
+                    // Konvertiere das Bild in das ausgewählte Format
+                    const convertedImageURL = canvas.toDataURL(`image/${targetFormat}`);
+
+                    // Name für die konvertierte Datei abfragen
+                    const fileName = prompt("Bitte gib den Namen der Datei ohne Erweiterung ein:", "converted");
+                    if (!fileName) {
+                        alert('Bitte gib einen Dateinamen ein, um die Datei herunterzuladen.');
+                        return;
+                    }
+
+                    // Download-Button erstellen
+                    const output = document.getElementById('output');
+                    output.innerHTML = ''; // Vorherige Ausgabe leeren
+
+                    const downloadButton = document.createElement('button');
+                    downloadButton.textContent = `Herunterladen (${fileName}.${targetFormat})`;
+                    downloadButton.onclick = function() {
+                        const link = document.createElement('a');
+                        link.href = convertedImageURL;
+                        link.download = `${fileName}.${targetFormat}`;
+                        link.click();
+                    };
+                    output.appendChild(downloadButton);
+                };
+
+                img.src = event.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
