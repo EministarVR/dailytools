@@ -7,6 +7,10 @@
     <meta name="github-domain-verification" content="dailytool.de">
     <title>Your Daily Tool</title>
     <link rel="icon" href="logo.ico" type="image/x-icon">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1496168662948575" crossorigin="anonymous"></script>
+
     <style>
         /* Global Styles */
         body, html {
@@ -47,7 +51,7 @@
         /* Navigation */
         nav {
             display: flex;
-            justify-content: center; /* Zentrierte Navigation */
+            justify-content: center;
             align-items: center;
             background: #1e1e1e;
             padding: 15px 20px;
@@ -55,7 +59,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            flex-wrap: wrap; /* Flex-wrap für mobile Ansicht */
+            flex-wrap: wrap;
         }
 
         .nav-links {
@@ -69,7 +73,7 @@
             padding: 10px 20px;
             border-radius: 30px;
             transition: background 0.3s ease, color 0.3s ease;
-            margin: 5px; /* Abstand für mobile Ansicht */
+            margin: 5px;
         }
 
         .nav-links a:hover {
@@ -103,14 +107,14 @@
         }
 
         .tool {
-            background: #1f1f1f; /* Dunkle Box */
+            background: #1f1f1f;
             border-radius: 10px;
             padding: 20px;
             width: 300px;
             margin: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer; /* Zeige, dass die Box anklickbar ist */
+            cursor: pointer;
         }
 
         .tool:hover {
@@ -129,67 +133,6 @@
             line-height: 1.5;
         }
 
-        /* Highlighted text */
-        .highlight {
-            background-color: #ffeb3b; /* Gelb für markierten Text */
-            color: #000; /* Schwarzer Text für besseren Kontrast */
-        }
-
-        /* Premium Section */
-        .premium {
-            background: #1e1e1e;
-            padding: 40px;
-            border-radius: 10px;
-            margin: 50px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in;
-        }
-
-        .premium h2 {
-            margin-bottom: 20px;
-            color: #007aff;
-            font-size: 2em;
-        }
-
-        /* About Section */
-        .about {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 40px;
-            border-radius: 10px;
-            margin: 50px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Support Section */
-        .support {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 40px;
-            border-radius: 10px;
-            margin: 50px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Buttons */
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #007aff;
-            color: white;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .button:hover {
-            background: #0051a8;
-        }
-
         /* Footer */
         footer {
             background-color: #1e1e1e;
@@ -202,82 +145,40 @@
             margin-top: 50px;
         }
 
-        /* Shopping Cart */
-        .cart {
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            background: #007aff;
-            color: white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .cart:hover {
-            background: #0051a8;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* KI Taschenrechner Box */
-        .calculator-box {
-            background: #1f1f1f;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px auto;
-            width: 300px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer; /* Zeige, dass die Box anklickbar ist */
-        }
-
-        .calculator-box h3 {
-            color: #007aff;
-            font-size: 1.8em;
+        /* AdSense Container */
+        .ads-container {
+            text-align: center;
+            margin-top: 20px;
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2.5em; /* Kleinere Schrift für mobile Geräte */
+                font-size: 2.5em;
             }
 
             .tool {
-                width: 90%; /* Breitere Boxen für mobile Geräte */
-                margin: 10px 0; /* Weniger Abstand */
+                width: 90%;
+                margin: 10px 0;
             }
 
             nav {
-                flex-direction: column; /* Navigation untereinander auf mobilen Geräten */
-                align-items: flex-start; /* Links ausrichten */
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .nav-links {
-                display: none; /* Verstecke Links standardmäßig */
-                flex-direction: column; /* Links untereinander */
-                width: 100%; /* Volle Breite */
+                display: none;
+                flex-direction: column;
+                width: 100%;
             }
 
             .nav-links.active {
-                display: flex; /* Zeige Links, wenn aktiv */
+                display: flex;
             }
 
             .menu-toggle {
-                display: block; /* Zeige Menü-Button */
+                display: block;
                 color: #e0e0e0;
                 padding: 10px;
                 cursor: pointer;
@@ -314,7 +215,7 @@
                 <p>Führe komplexe Berechnungen mit unserer KI durch.</p>
             </div>
             <div class="tool" onclick="window.location.href='tools.html'">
-                <h3> Kalender</h3>
+                <h3>Kalender</h3>
                 <p>Schreibe dir alle wichtigen Termine auf mit dem Daily Tools Kalender!</p>
             </div>
             <div class="tool" onclick="window.location.href='tools.html'">
@@ -323,45 +224,36 @@
             </div>
             <div class="tool" onclick="window.location.href='convert.html'">
                 <h3>Konvertieren</h3>
-                <p>Benutze unser super schnelles Konvertierungs Tool! </p>
+                <p>Benutze unser super schnelles Konvertierungs Tool!</p>
             </div>
             <div class="tool" onclick="window.location.href='tools.html'">
-                    <h3>Und mehr!</h3>
-                    <p>Wir haben noch viel mehr im Angebot!</p>
+                <h3>Und mehr!</h3>
+                <p>Wir haben noch viel mehr im Angebot!</p>
             </div>
-        </div>
-           <div class="about" Id="about">
-            <h2>Unterstütze unser Projekt</h2>
-            <p>Unterstötze unser Projekt mit einer kleinen Spende. Das würde uns sehr helfen um dieses Projekt zu realisieren.</p>
-            <a href="https://gofund.me/c848e8f2" class="button">Unterstützen</a>
-        </div>
-        
-         <div class="premium" id="premium">
-            <h2>Premium Modelle</h2>
-            <p>Erhalte Zugriff auf exklusive Tools und Funktionen!</p>
-            <a href="premium.html" class="button">Jetzt Premium werden</a>
-        </div>
-        <div class="about" id="about">
-            <h2>Über uns</h2>
-            <p>Wir sind Nael-Emin Ben Oun und Milan Pachulski, Schüler der 9. Klasse.</p>
-            <a href="about.html" class="button">Mehr über uns!</a>
-        </div>
-        <div class="support" id="support">
-            <h2>Support</h2>
-            <p>Für Unterstützung und Fragen, kontaktiere uns!</p>
-            <a href="support.html" class="button">Kontaktiere uns!</a>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         &copy; 2024 Your Daily Tool. Alle Rechte vorbehalten. Es gelten unsere <a href="agb.html">AGB</a>
+        
+        <!-- Google AdSense Anzeige -->
+        <div class="ads-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1496168662948575"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </footer>
 
     <script>
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active'); // Toggle die Sichtbarkeit der Links
+            navLinks.classList.toggle('active');
         }
     </script>
 </body>
