@@ -134,6 +134,7 @@
     <nav>
         <div class="nav-links">
             <a href="index.html">Home</a>
+            <a href="converter.html">Konvertierungstool</a>
             <a href="tools.html">Tools</a>
             <a href="premium.html">Premium</a>
             <a href="about.html">Über uns</a>
@@ -144,20 +145,23 @@
     <!-- Main Container -->
     <div class="container">
         <h2>Datei-Konvertierungstool</h2>
-        <p>Wandle deine Dateien einfach in verschiedene Formate um.</p>
+        <p>Wandle deine Bilder einfach in verschiedene Formate um.</p>
 
         <!-- Converter Box -->
         <div class="converter-box">
             <form id="converterForm">
                 <label for="fileUpload">Wähle eine Datei aus:</label><br>
-                <input type="file" id="fileUpload" accept=".jpg, .png, .avif, .webp, .jpeg"><br>
+                <input type="file" id="fileUpload" accept=".jpg, .png, .jpeg, .avif, .webp, .gif, .bmp"><br>
 
                 <label for="formatSelect">Wähle das Zielformat:</label><br>
                 <select id="formatSelect">
                     <option value="png">PNG</option>
                     <option value="jpg">JPG</option>
+                    <option value="jpeg">JPEG</option>
                     <option value="webp">WebP</option>
                     <option value="avif">AVIF</option>
+                    <option value="gif">GIF</option>
+                    <option value="bmp">BMP</option>
                 </select><br>
 
                 <button type="button" onclick="convertFile()">Umwandeln</button>
@@ -184,46 +188,51 @@
             const file = fileInput.files[0];
             const targetFormat = formatSelect.value;
 
-            const reader = new FileReader();
+            // Überprüfen des Dateiformats
+            if (['jpg', 'png', 'jpeg', 'avif', 'webp', 'gif', 'bmp'].includes(targetFormat)) {
+                const reader = new FileReader();
 
-            reader.onload = function(event) {
-                const img = new Image();
-                img.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0);
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
 
-                    // Konvertiere das Bild in das ausgewählte Format
-                    const convertedImageURL = canvas.toDataURL(`image/${targetFormat}`);
+                        // Konvertiere das Bild in das ausgewählte Format
+                        const convertedImageURL = canvas.toDataURL(`image/${targetFormat}`);
 
-                    // Name für die konvertierte Datei abfragen
-                    const fileName = prompt("Bitte gib den Namen der Datei ohne Erweiterung ein:", "converted");
-                    if (!fileName) {
-                        alert('Bitte gib einen Dateinamen ein, um die Datei herunterzuladen.');
-                        return;
-                    }
+                        // Name für die konvertierte Datei abfragen
+                        const fileName = prompt("Bitte gib den Namen der Datei ohne Erweiterung ein:", "converted");
+                        if (!fileName) {
+                            alert('Bitte gib einen Dateinamen ein, um die Datei herunterzuladen.');
+                            return;
+                        }
 
-                    // Download-Button erstellen
-                    const output = document.getElementById('output');
-                    output.innerHTML = ''; // Vorherige Ausgabe leeren
+                        // Download-Button erstellen
+                        const output = document.getElementById('output');
+                        output.innerHTML = ''; // Vorherige Ausgabe leeren
 
-                    const downloadButton = document.createElement('button');
-                    downloadButton.textContent = `Herunterladen (${fileName}.${targetFormat})`;
-                    downloadButton.onclick = function() {
-                        const link = document.createElement('a');
-                        link.href = convertedImageURL;
-                        link.download = `${fileName}.${targetFormat}`;
-                        link.click();
+                        const downloadButton = document.createElement('button');
+                        downloadButton.textContent = `Herunterladen (${fileName}.${targetFormat})`;
+                        downloadButton.onclick = function() {
+                            const link = document.createElement('a');
+                            link.href = convertedImageURL;
+                            link.download = `${fileName}.${targetFormat}`;
+                            link.click();
+                        };
+                        output.appendChild(downloadButton);
                     };
-                    output.appendChild(downloadButton);
+
+                    img.src = event.target.result;
                 };
 
-                img.src = event.target.result;
-            };
-
-            reader.readAsDataURL(file);
+                reader.readAsDataURL(file);
+            } else {
+                alert('Das gewählte Zielformat wird nicht unterstützt.');
+            }
         }
     </script>
 </body>
