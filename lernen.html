@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your Daily Tool - Die besten Tools für deinen Alltag.">
-    <meta name="github-domain-verification" content="dailytool.de">
-    <title>Your Daily Tool</title>
+    <meta name="description" content="Lerne mit Your Daily Tool - Nützliche Werkzeuge für den Lernerfolg.">
+    <title>Lernen - Your Daily Tool</title>
     <link rel="icon" href="logo.ico" type="image/x-icon">
     <style>
         /* Global Styles */
@@ -94,8 +93,8 @@
             color: #fff;
         }
 
-        /* Tools Section */
-        .tools {
+        /* Learning Tools Section */
+        .learning-tools {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -129,67 +128,6 @@
             line-height: 1.5;
         }
 
-        /* Highlighted text */
-        .highlight {
-            background-color: #ffeb3b; /* Gelb für markierten Text */
-            color: #000; /* Schwarzer Text für besseren Kontrast */
-        }
-
-        /* Premium Section */
-        .premium {
-            background: #1e1e1e;
-            padding: 40px;
-            border-radius: 10px;
-            margin: 50px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in;
-        }
-
-        .premium h2 {
-            margin-bottom: 20px;
-            color: #007aff;
-            font-size: 2em;
-        }
-
-        /* About Section */
-        .about {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 40px;
-            border-radius: 10px;
-            margin: 50px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Support Section */
-        .support {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 40px;
-            border-radius: 10px;
-            margin: 50px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Buttons */
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #007aff;
-            color: white;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .button:hover {
-            background: #0051a8;
-        }
-
         /* Footer */
         footer {
             background-color: #1e1e1e;
@@ -202,27 +140,6 @@
             margin-top: 50px;
         }
 
-        /* Shopping Cart */
-        .cart {
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            background: #007aff;
-            color: white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .cart:hover {
-            background: #0051a8;
-        }
-
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -232,22 +149,6 @@
         @keyframes slideIn {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* KI Taschenrechner Box */
-        .calculator-box {
-            background: #1f1f1f;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px auto;
-            width: 300px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer; /* Zeige, dass die Box anklickbar ist */
-        }
-
-        .calculator-box h3 {
-            color: #007aff;
-            font-size: 1.8em;
         }
 
         /* Responsive Styles */
@@ -289,8 +190,8 @@
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Your Daily Tool</h1>
-        <p>Die besten Tools für einen produktiven Alltag</p>
+        <h1>Lernen mit Your Daily Tool</h1>
+        <p>Die besten Tools, um deinen Lernerfolg zu maximieren</p>
     </header>
 
     <!-- Navigation Bar -->
@@ -308,55 +209,30 @@
 
     <!-- Main Container -->
     <div class="container">
-        <h2 id="tools">Nützliche Tools</h2>
-        <div class="tools">
-            <div class="tool" onclick="window.location.href='rechner.html'">
-                <h3>KI Taschenrechner</h3>
-                <p>Führe komplexe Berechnungen mit unserer KI durch.</p>
+        <h2>Unsere Lern-Tools</h2>
+        <div class="learning-tools">
+            <div class="tool" onclick="window.location.href='flashcards.html'">
+                <h3>Digitale Lernkarten</h3>
+                <p>Effektives Lernen mit personalisierten Flashcards.</p>
             </div>
-            <div class="tool" onclick="window.location.href='tools.html'">
-                <h3> Kalender</h3>
-                <p>Schreibe dir alle wichtigen Termine auf mit dem Daily Tools Kalender!</p>
+            <div class="tool" onclick="window.location.href='voctrainer.html'">
+                <h3>Vokabeltrainer</h3>
+                <p>Erweitere deinen Wortschatz mit unserem Vokabeltrainer.</p>
             </div>
-            <div class="tool" onclick="window.location.href='tools.html'">
-                <h3>Erinnerungen</h3>
-                <p>Schreib dir zum Beispiel deine Einkaufsliste mit unseren Erinnerungen!</p>
+            <div class="tool" onclick="window.location.href='mathpractice.html'">
+                <h3>Mathe-Übungen</h3>
+                <p>Verbessere deine Mathe-Fähigkeiten mit interaktiven Aufgaben.</p>
             </div>
-            <div class="tool" onclick="window.location.href='convert.html'">
-                <h3>Konvertieren</h3>
-                <p>Benutze unser super schnelles Konvertierungs Tool! </p>
+            <div class="tool" onclick="window.location.href='learningplanner.html'">
+                <h3>Lernplaner</h3>
+                <p>Plane deine Lerneinheiten und bleibe auf dem richtigen Kurs.</p>
             </div>
-            <div class="tool" onclick="window.location.href='tools.html'">
-                    <h3>Und mehr!</h3>
-                    <p>Wir haben noch viel mehr im Angebot!</p>
-            </div>
-        </div>
-           <div class="about" Id="about">
-            <h2>Unterstütze unser Projekt</h2>
-            <p>Unterstötze unser Projekt mit einer kleinen Spende. Das würde uns sehr helfen um dieses Projekt zu realisieren.</p>
-            <a href="https://gofund.me/c848e8f2" class="button">Unterstützen</a>
-        </div>
-        
-         <div class="premium" id="premium">
-            <h2>Premium Modelle</h2>
-            <p>Erhalte Zugriff auf exklusive Tools und Funktionen!</p>
-            <a href="premium.html" class="button">Jetzt Premium werden</a>
-        </div>
-        <div class="about" id="about">
-            <h2>Über uns</h2>
-            <p>Wir sind Nael-Emin Ben Oun und Milan Pachulski, Schüler der 9. Klasse.</p>
-            <a href="about.html" class="button">Mehr über uns!</a>
-        </div>
-        <div class="support" id="support">
-            <h2>Support</h2>
-            <p>Für Unterstützung und Fragen, kontaktiere uns!</p>
-            <a href="support.html" class="button">Kontaktiere uns!</a>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        &copy; 2024 Your Daily Tool. Alle Rechte vorbehalten. Es gelten unsere <a href="agb.html">AGB</a>
+        &copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.
     </footer>
 
     <script>
