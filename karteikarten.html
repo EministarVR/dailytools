@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lerne deine Vokabeln mit Karteikarten.">
+    <title>Karteikarten - Your Daily Tool</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212; /* Dunkler Hintergrund */
+            color: #e0e0e0; /* Helle Schrift */
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 80px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            transition: transform 0.5s;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1e1e1e; /* Dunkler Hintergrund für den Container */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1.1em;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007aff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #005fca;
+        }
+
+        /* Card Section */
+        .card {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .card .card-content {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Karteikarten</h1>
+        <p>Lerne deine Vokabeln mit Karteikarten.</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Vokabeln hinzufügen</h2>
+        <div class="form-group">
+            <label for="german-word">Deutsches Wort:</label>
+            <input type="text" id="german-word" placeholder="Gib das deutsche Wort ein">
+        </div>
+        <div class="form-group">
+            <label for="foreign-word">Fremdwort:</label>
+            <input type="text" id="foreign-word" placeholder="Gib das Fremdwort ein">
+        </div>
+        <a href="#" class="button" onclick="addVocabulary()">Hinzufügen</a>
+
+        <h2>Deine Karteikarten</h2>
+        <div id="card-list">
+            <!-- Karteikarten werden hier eingefügt -->
+        </div>
+    </div>
+
+    <script>
+        const cardList = document.getElementById('card-list');
+
+        function addVocabulary() {
+            const germanWord = document.getElementById('german-word').value;
+            const foreignWord = document.getElementById('foreign-word').value;
+            const urlParams = new URLSearchParams(window.location.search);
+            const folderIndex = urlParams.get('folderIndex');
+
+            if (germanWord && foreignWord) {
+                const newCard = {
+                    german: germanWord,
+                    foreign: foreignWord
+                };
+
+                // Speichern im Web Storage
+                const folders = JSON.parse(localStorage.getItem('vocabFolders')) || [];
+                folders[folderIndex].vocabList.push(newCard);
+                localStorage.setItem('vocabFolders', JSON.stringify(folders));
+
+                displayCards(folderIndex);
+                document.getElementById('german-word').value = ''; // Leeren des Eingabefeldes
+                document.getElementById('foreign-word').value = ''; // Leeren des Eingabefeldes
+            } else {
+                alert('Bitte beide Wörter angeben.');
+            }
+        }
+
+        function displayCards(folderIndex) {
+            cardList.innerHTML = '';
+            const folders = JSON.parse(localStorage.getItem('vocabFolders')) || [];
+            const cards = folders[folderIndex].vocabList || [];
+
+            cards.forEach(card => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'card';
+                cardDiv.innerHTML = `
+                    <div class="card-content">
+                        <span>${card.german}</span>
+                        <span>${card.foreign}</span>
+                    </div>
+                `;
+                cardList.appendChild(cardDiv);
+            });
+        }
+
+        // Initiale Anzeige der Karteikarten
+        const urlParams = new URLSearchParams(window.location.search);
+        const folderIndex = urlParams.get('folderIndex');
+        displayCards(folderIndex);
+    </script>
+</body>
+</html>

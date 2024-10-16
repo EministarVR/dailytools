@@ -84,6 +84,7 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s;
+            margin-top: 10px; /* Abstand zwischen den Buttons */
         }
 
         .button:hover {
@@ -118,32 +119,44 @@
 
         /* Flashcard Styles */
         .flashcard-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: transform 0.3s;
+            position: relative;
+            width: 200px; /* Breite der Karteikarte */
+            height: 120px; /* Höhe der Karteikarte */
+            perspective: 1000px; /* Perspektive für 3D-Transformation */
+            margin: 10px auto; /* Zentriert die Karteikarten */
         }
 
-        .flashcard-container:hover {
-            transform: scale(1.02);
+        .flashcard {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d; /* Ermöglicht 3D-Effekte */
+            cursor: pointer; /* Zeigt, dass die Karteikarte anklickbar ist */
         }
 
         .flashcard-front, .flashcard-back {
-            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Versteckt die Rückseite */
+            color: #000; /* Stärkerer Kontrast für den Text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em; /* Größere Schrift */
+            border-radius: 10px;
         }
 
-        .flashcard-container.show-front .flashcard-front {
-            display: block;
+        .flashcard-front {
+            background-color: #fff; /* Vorderseite der Karte */
         }
 
-        .flashcard-container.show-back .flashcard-back {
-            display: block;
+        .flashcard-back {
+            background-color: #007aff; /* Rückseite der Karte */
+            color: #fff; /* Helle Schrift auf der Rückseite */
+            transform: rotateY(180deg); /* Dreht die Rückseite */
         }
 
         /* Lernansicht */
@@ -181,6 +194,7 @@
         <div id="folder-list">
             <!-- Ordner werden hier eingefügt -->
         </div>
+        <a href="#" class="button" onclick="deleteAllFolders()">Alle Ordner löschen</a> <!-- Button zum Löschen aller Ordner -->
 
         <!-- Vokabel hinzufügen -->
         <div id="add-vocab" style="display:none;">
@@ -228,106 +242,84 @@
 
                 displayFolders();
                 document.getElementById('folder-name').value = ''; // Leeren des Eingabefeldes
-                document.getElementById('language-select').value = 'en-de'; // Zurücksetzen der Sprache
-            } else {
-                alert('Bitte einen Ordnernamen und eine Sprache angeben.');
+                document.getElementById('language-select').value = 'en-de'; // Zurücksetzen der Auswahl
             }
         }
 
         function displayFolders() {
             folderList.innerHTML = '';
             const folders = JSON.parse(localStorage.getItem('vocabFolders')) || [];
-
             folders.forEach((folder, index) => {
                 const folderDiv = document.createElement('div');
-                folderDiv.className = 'vocab-folder';
+                folderDiv.classList.add('vocab-folder');
                 folderDiv.innerHTML = `
-                    <img src="folder-icon.png" class="folder-icon" alt="Ordner">
+                    <img src="folder-icon.png" alt="Ordnersymbol" class="folder-icon">
                     <span class="folder-name">${folder.name}</span>
+                    <a href="#" onclick="showVocab(${index})" class="button">Vokabeln ansehen</a>
                 `;
-                folderDiv.onclick = function() {
-                    currentFolderIndex = index;
-                    document.getElementById('add-vocab').style.display = 'block';
-                    loadVocab();
-                };
-
                 folderList.appendChild(folderDiv);
             });
         }
 
-        function loadVocab() {
+        function showVocab(index) {
             const folders = JSON.parse(localStorage.getItem('vocabFolders')) || [];
-            const currentFolder = folders[currentFolderIndex];
+            const folder = folders[index];
+            currentFolderIndex = index; // Den aktuellen Ordnerindex speichern
+            const addVocabSection = document.getElementById('add-vocab');
+            addVocabSection.style.display = 'block'; // Zeige das Vokabel hinzufügen
+            flashcardsContainer.innerHTML = ''; // Leere den Flashcard-Container
 
-            if (currentFolder && currentFolder.vocabList.length > 0) {
-                displayFlashcards(currentFolder.vocabList);
-            } else {
-                flashcardsContainer.innerHTML = '<p>Keine Vokabeln vorhanden. Bitte füge welche hinzu.</p>';
-            }
-        }
-
-        function addVocab() {
-            const vocabDe = document.getElementById('vocab-de').value;
-            const vocabEn = document.getElementById('vocab-en').value;
-
-            if (vocabDe && vocabEn) {
-                const folders = JSON.parse(localStorage.getItem('vocabFolders')) || [];
-                const currentFolder = folders[currentFolderIndex];
-
-                currentFolder.vocabList.push({ de: vocabDe, en: vocabEn });
-                localStorage.setItem('vocabFolders', JSON.stringify(folders));
-
-                document.getElementById('vocab-de').value = '';
-                document.getElementById('vocab-en').value = '';
-
-                alert(`Vokabel "${vocabDe} - ${vocabEn}" hinzugefügt!`);
-                loadVocab(); // Lade die Vokabeln neu
-            } else {
-                alert('Bitte beide Vokabeln angeben.');
-            }
-        }
-
-        function displayFlashcards(vocabList) {
-            flashcardsContainer.innerHTML = ''; // Vorherige Karteikarten löschen
-
-            vocabList.forEach((vocab) => {
+            // Füge die Vokabeln als Flashcards hinzu
+            folder.vocabList.forEach(vocab => {
                 const flashcard = document.createElement('div');
-                flashcard.className = 'flashcard-container show-front';
+                flashcard.classList.add('flashcard-container');
                 flashcard.innerHTML = `
-                    <div class="flashcard-front">
-                        <p>${vocab.de}</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <p>${vocab.en}</p>
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-front">${vocab.de}</div>
+                        <div class="flashcard-back">${vocab.en}</div>
                     </div>
                 `;
-                flashcard.onclick = function() {
-                    if (flashcard.classList.contains('show-front')) {
-                        flashcard.classList.remove('show-front');
-                        flashcard.classList.add('show-back');
-                    } else {
-                        flashcard.classList.remove('show-back');
-                        flashcard.classList.add('show-front');
-                    }
-                };
-
                 flashcardsContainer.appendChild(flashcard);
             });
         }
 
+        function addVocab() {
+            const de = document.getElementById('vocab-de').value;
+            const en = document.getElementById('vocab-en').value;
+
+            if (de && en !== '') {
+                const folders = JSON.parse(localStorage.getItem('vocabFolders')) || [];
+                if (currentFolderIndex !== null) {
+                    folders[currentFolderIndex].vocabList.push({ de, en });
+                    localStorage.setItem('vocabFolders', JSON.stringify(folders));
+                    document.getElementById('vocab-de').value = ''; // Leeren des Eingabefeldes
+                    document.getElementById('vocab-en').value = ''; // Leeren des Eingabefeldes
+                    showVocab(currentFolderIndex); // Aktualisiere die Vokabelliste
+                }
+            }
+        }
+
         function goToLearningView() {
-            document.getElementById('add-vocab').style.display = 'none';
-            document.getElementById('learning-view').style.display = 'block';
-            loadVocab(); // Lade die Vokabeln für die Lernansicht
+            const addVocabSection = document.getElementById('add-vocab');
+            const learningView = document.getElementById('learning-view');
+            addVocabSection.style.display = 'none';
+            learningView.style.display = 'block';
         }
 
         function goBack() {
-            document.getElementById('learning-view').style.display = 'none';
-            document.getElementById('add-vocab').style.display = 'block';
+            const addVocabSection = document.getElementById('add-vocab');
+            const learningView = document.getElementById('learning-view');
+            addVocabSection.style.display = 'block'; // Zeige das Vokabel hinzufügen
+            learningView.style.display = 'none'; // Verstecke die Lernansicht
         }
 
-        // Initiale Anzeige der Ordner
-        displayFolders();
+        function deleteAllFolders() {
+            localStorage.removeItem('vocabFolders');
+            displayFolders(); // Aktualisiere die Anzeige nach dem Löschen
+        }
+
+        // Beim Laden der Seite die Ordner anzeigen
+        document.addEventListener('DOMContentLoaded', displayFolders);
     </script>
 </body>
 </html>
