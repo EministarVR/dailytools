@@ -163,6 +163,39 @@
         #learning-view {
             display: none; /* Standardmäßig ausblenden */
         }
+
+          /* Navigation */
+          nav {
+            display: flex;
+            justify-content: center; /* Zentrierte Navigation */
+            align-items: center;
+            background: #1e1e1e;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap; /* Flex-wrap für mobile Ansicht */
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s ease, color 0.3s ease;
+            margin: 5px; /* Abstand für mobile Ansicht */
+        }
+
+        .nav-links a:hover {
+            background: #383838;
+            color: #007aff;
+        }
     </style>
 </head>
 <body>
@@ -171,7 +204,18 @@
         <h1>Vokabeltrainer</h1>
         <p>Erstelle Vokabellisten und lerne effektiv mit Karteikarten.</p>
     </header>
-
+    <nav> <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="lernen.html">Lernen</a>
+            <a href="tools.html">Tools</a>
+            <a href="premium.html">Premium</a>
+            <a href="about.html">Über uns</a>
+            <a href="support.html">Support</a>
+        </div>
+    </nav>
+</nav>
     <!-- Main Content -->
     <div class="container">
         <h2>Vokabelordner erstellen</h2>

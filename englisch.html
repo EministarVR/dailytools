@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Daily Tool - Englisch lernen.">
+    <title>Englisch lernen - Your Daily Tool</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        /* Stil von index.html übernehmen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 50px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #1f1f1f;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            color: #007aff;
+        }
+
+        /* Container für Grammatikthemen */
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        /* Grammatik-Themen */
+        .topics {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideIn 1s ease-in;
+        }
+
+        .topic {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .topic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .topic h3 {
+            font-size: 1.8em;
+            color: #007aff;
+        }
+
+        .topic p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Englisch Lernen</h1>
+        <p>Wähle ein Thema, um Grammatik zu lernen und Aufgaben zu machen</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Startseite</a>
+        <a href="englisch.html">Englisch</a>
+        <a href="mathe.html">Mathematik</a>
+        <a href="support.html">Support</a>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h2>Grammatik Themen</h2>
+        <div class="topics">
+            <div class="topic" onclick="window.location.href='grammar/present_tense.html'">
+                <h3>Present Tense</h3>
+                <p>Erfahre mehr über die Gegenwartsform und übe mit Aufgaben.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/past_tense.html'">
+                <h3>Past Tense</h3>
+                <p>Lerne die Vergangenheitsform und bearbeite Aufgaben dazu.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/future_tense.html'">
+                <h3>Future Tense</h3>
+                <p>Übe die Zukunftsform und verbessere deine Kenntnisse.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/modal_verbs.html'">
+                <h3>Modal Verbs</h3>
+                <p>Lerne die Modalverben und wende sie in Übungen an.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/conditional_sentences.html'">
+                <h3>Conditional Sentences</h3>
+                <p>Verstehe die Bedingungssätze und löse Aufgaben dazu.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/passive_voice.html'">
+                <h3>Passive Voice</h3>
+                <p>Entdecke die passive Form und übe damit.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/direct_indirect_speech.html'">
+                <h3>Direct/Indirect Speech</h3>
+                <p>Übe die direkte und indirekte Rede.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/question_tags.html'">
+                <h3>Question Tags</h3>
+                <p>Lerne die Frageanhängsel und bearbeite Aufgaben.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/relative_clauses.html'">
+                <h3>Relative Clauses</h3>
+                <p>Verstehe die Relativsätze und wende sie in Übungen an.</p>
+            </div>
+            <div class="topic" onclick="window.location.href='grammar/adjective_adverb.html'">
+                <h3>Adjectives & Adverbs</h3>
+                <p>Unterscheide Adjektive und Adverbien und übe damit.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Your Daily Tool. Alle Rechte vorbehalten. Es gelten unsere <a href="agb.html">AGB</a>
+    </footer>
+
+</body>
+</html>
