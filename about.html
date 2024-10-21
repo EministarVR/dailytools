@@ -4,54 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über uns - Your Daily Tool</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
     <style>
         body {
             background-color: #121212;
             color: #e0e0e0;
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
 
-        /* Navigation Bar */
+        /* Navigation */
         .navbar {
-            background-color: #1e1e1e;
-            padding: 15px 50px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            border-bottom: 2px solid #333;
+            background-color: #1e1e1e;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .navbar a {
             color: #e0e0e0;
             text-decoration: none;
-            font-size: 18px;
             margin: 0 15px;
-            transition: color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .navbar a:hover {
-            color: #4CAF50; /* Grün als Hover-Effekt */
+            background-color: #383838;
+            color: #007aff;
         }
 
-        /* Header Section */
+        /* Header */
         .header {
-            background-color: #1e1e1e;
-            padding: 40px;
+            background: linear-gradient(135deg, #1e1e1e, #383838);
             text-align: center;
-            border-bottom: 2px solid #333;
+            padding: 80px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .header h1 {
-            font-size: 36px;
+            font-size: 3.5em;
             margin: 0;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .header p {
-            font-size: 18px;
-            margin: 5px 0 0;
+            font-size: 1.5em;
+            opacity: 0.8;
             color: #a0a0a0;
+            margin-bottom: 10px;
         }
 
         /* Story Section */
@@ -62,8 +72,23 @@
             text-align: center;
             line-height: 1.8;
             font-size: 18px;
-            color: #c0c0c0;
             animation: fadeIn 2s ease-in-out;
+        }
+
+        .story-section h2 {
+            color: #007aff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .story-section p {
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .story-section p:first-of-type {
+            font-style: italic;
+            font-size: 1.2em;
         }
 
         /* Team Section */
@@ -72,44 +97,47 @@
             margin: 40px auto;
             padding: 20px;
             display: flex;
-            flex-direction: row;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
-            animation: slideIn 1.5s ease-in-out;
+            gap: 20px;
         }
 
         .team-member {
-            background-color: #1e1e1e;
-            border: 1px solid #333;
+            background-color: #1f1f1f;
+            border-radius: 10px;
             padding: 20px;
-            margin: 10px;
             text-align: center;
-            flex: 1;
-            max-width: 400px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 300px;
+            cursor: pointer;
         }
 
         .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .team-member img {
             border-radius: 50%;
             width: 150px;
             height: 150px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-member:hover img {
+            transform: rotate(360deg);
         }
 
         .team-member h2 {
-            font-size: 24px;
-            margin: 10px 0;
+            font-size: 1.8em;
+            color: #007aff;
         }
 
         .team-member p {
-            font-size: 16px;
-            color: #c0c0c0;
+            font-size: 1em;
+            color: #ddd;
             line-height: 1.5;
         }
 
@@ -119,6 +147,7 @@
             text-align: center;
             padding: 20px;
             border-top: 2px solid #333;
+            margin-top: 40px;
         }
 
         footer p {
@@ -127,15 +156,19 @@
             font-size: 14px;
         }
 
+        footer a {
+            color: #007aff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
         }
     </style>
 </head>
@@ -143,16 +176,11 @@
 
     <!-- Navigation Bar -->
     <div class="navbar">
-        <div class="logo">
-            <a href="index.html">Your Daily Tool</a>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Startseite</a>
-            <a href="about.html">Über uns</a>
-            <a href="tools.html">Tools</a>
-            <a href="premium.html">Premium</a>
-            <a href="support.html">Support</a>
-        </div>
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über uns</a>
+        <a href="tools.html">Tools</a>
+        <a href="premium.html">Premium</a>
+        <a href="support.html">Support</a>
     </div>
 
     <!-- Header Section -->
@@ -164,14 +192,8 @@
     <!-- Story Section -->
     <div class="story-section">
         <h2>Unsere Geschichte</h2>
-        <p>Wir sind Schüler der neunten Klasse, die ohne jegliche Vorkenntnisse dieses Projekt auf die Beine gestellt haben. 
-            Unsere Leidenschaft für Technik und Entwicklung hat uns dazu bewegt, uns intensiver mit Programmierung und 
-            Webdesign auseinanderzusetzen. Was als kleines Experiment begann, hat sich schnell zu einem ehrgeizigen Projekt 
-            entwickelt, das immer mehr an Umfang und Funktionalität gewonnen hat.</p>
-        <p>Unser Ziel ist es, benutzerfreundliche und funktionelle Tools zu entwickeln, die den Alltag erleichtern und die 
-            Technologie für alle zugänglich machen. Obwohl wir noch am Anfang stehen, streben wir danach, unsere Plattform 
-            stetig zu verbessern und weiterzuentwickeln. Wir freuen uns darauf, euch mit neuen Features zu überraschen und 
-            unsere Tools immer weiter auszubauen.</p>
+        <p>Wir begannen als zwei Schüler der neunten Klasse, die mit wenig Erfahrung große Ziele hatten.</p>
+        <p>Von dieser einfachen Idee ausgehend, haben wir mit viel Leidenschaft und Engagement eine Plattform aufgebaut, die praktische Tools für den Alltag bietet.</p>
     </div>
 
     <!-- Team Section -->
@@ -179,17 +201,18 @@
         <div class="team-member">
             <img src="naelemin.png" alt="Nael-Emin Ben Oun">
             <h2>Nael-Emin Ben Oun</h2>
-            <p>HTML und CSS Enthusiast. Nael-Emin ist das kreative Mastermind hinter dem Design und Layout der Website. 
-                Seine Leidenschaft für Webentwicklung begann schon in der Grundschule. Heute sorgt er dafür, dass jede einzelne 
-                Seite perfekt gestaltet und intuitiv zu bedienen ist. Sein Augenmerk liegt auf der kontinuierlichen Verbesserung 
-                der Benutzerfreundlichkeit und der Gestaltung von Tools, die optisch ansprechend und funktional sind.</p>
-        </div>
+            <p>Willkommen bei Your Daily Tool – deiner Plattform für nützliche Alltags-Tools! Diese Seite wurde von Nael-Emin Ben Oun, einem passionierten Schüler und dem einzigen Entwickler hinter diesem Projekt, ins Leben gerufen. Als Schüler der 9. Klasse arbeitet Nael-Emin kontinuierlich daran, dir die besten Tools zur Verfügung zu stellen, die deinen Alltag einfacher machen.
 
+                Sein Ziel ist es, innovative, leicht zugängliche und nützliche Tools zu entwickeln, die für jedermann kostenlos nutzbar sind. Your Daily Tool bietet eine Vielzahl von Funktionen, die auf die Bedürfnisse im Alltag zugeschnitten sind – von einem KI-Rechner bis hin zu Konvertierungs- und Notiz-Tools.
+                
+                </p>
+        </div>
     </div>
 
     <!-- Footer Section -->
     <footer>
-        <p>© 2024 Your Daily Tool. Alle Rechte vorbehalten. Es gelten unsere <a href="agb.html">AGB</a> </p>
+        <p>© 2024 Your Daily Tool. Alle Rechte vorbehalten. <a href="agb.html">AGB</a></p>
     </footer>
+
 </body>
 </html>
