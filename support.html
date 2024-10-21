@@ -211,11 +211,12 @@
         <!-- Kontaktformular -->
         <div class="contact-form">
             <h2>Kontaktformular</h2>
-            <input type="text" id="name" placeholder="Dein Name" required>
-            <input type="email" id="email" placeholder="Deine E-Mail" required>
-            <textarea id="message" rows="5" placeholder="Deine Nachricht" required></textarea>
-            <button id="submitBtn" type="submit">Absenden</button>
-            <p id="responseMessage" style="margin-top: 10px;"></p>
+            <form action="https://formspree.io/f/mwpkpvwv" method="POST">
+                <input type="text" id="name" name="name" placeholder="Dein Name" required>
+                <input type="email" id="email" name="email" placeholder="Deine E-Mail" required>
+                <textarea id="message" name="message" rows="5" placeholder="Deine Nachricht" required></textarea>
+                <button type="submit">Absenden</button>
+            </form>
         </div>
 
         <!-- Bug Report Section -->
@@ -249,42 +250,12 @@
             <p>Trete unserem Discord-Server bei, um Unterstützung und Community-Hilfe zu erhalten!</p>
             <a href="https://dcserver.link/eministarscrew" target="_blank" style="color: #007aff;">Zum Discord-Server</a>
          </div>
-         <div class="support-section">
-            <h2>Schreib uns eine Email</h2>
-            <p>Schreibe mit uns über deine Email</p>
-            <a href="mailto:support@dailytool.de" target="_blank" style="color: #007aff;">Email</a>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Your Daily Tool. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2024 Your Daily Tool. All rights reserved.</p>
     </footer>
-
-    <script>
-        // FAQ Toggle
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const p = item.querySelector('p');
-                p.style.display = (p.style.display === 'block') ? 'none' : 'block';
-            });
-        });
-
-        // Form Submission
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Hier kann die Logik zum Senden der Nachricht hinzugefügt werden
-
-            document.getElementById('responseMessage').textContent = 'Vielen Dank für deine Nachricht, ' + name + '!';
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('message').value = '';
-        });
-    </script>
+    
 </body>
 </html>
