@@ -1,61 +1,25 @@
-# 🛠️ **Your Daily Tool**  
+# 🛠️ Your Daily Tool – A Farewell
 
-Welcome to **Your Daily Tool** – the platform designed to streamline your day with elegance, efficiency, and simplicity.  
-
-🌐 [**Discover Your Daily Tool**](https://dailytool.de)  
+With a heavy heart, I have to announce that **Your Daily Tool** is being discontinued.
 
 ---
 
-## 🌟 **Empower Your Productivity**  
+## 🌟 The Story of Your Daily Tool
 
-Your Daily Tool offers everything you need to tackle your daily tasks effortlessly:  
+Your Daily Tool was my first major project, marking the beginning of my journey into programming. My goal was to create a platform that simplifies daily tasks – featuring a calculator, conversion tools, a calendar, and even a vocabulary trainer.
 
-- **🧮 Taschenrechner**  
-  Forget pen and paper – our calculator is faster, smarter, and now smoother than ever.  
-
-- **🔄 Konvertierungen**  
-  From weights to distances, convert units like a pro in just a few clicks.  
-
-- **📅 Kalender**  
-  Plan your life with ease using our clean, customizable calendar. *(Big updates are on the horizon!)*  
-
-- **🗣️ Vokabeltrainer (Beta)**  
-  Ready to level up your language skills? Start exploring our new vocabulary trainer.  
-
-- **📬 Kontaktformular**  
-  Your voice matters – share feedback, ideas, or questions directly through our site.  
+It was a passion project, born out of my curiosity for software development and my love for technology. I dedicated a lot of time and effort to improving and expanding it.
 
 ---
 
-## 🚀 **Version 1.7.1 Beta – Fresh Updates**  
+## ❌ Why Is It Shutting Down?
 
-Here’s what’s new in our latest release:  
-- 🔍 **Optimized SEO**: Find us faster and enjoy improved performance.  
-- 🧮 **Taschenrechner Revamp**: Smoother, quicker, and more intuitive.  
-- 🗣️ **Vokabeltrainer Preview**: Get a taste of what’s coming with our new language tool.  
-- 🛠️ **General Enhancements**: Polished UI, faster load times, and bug fixes for a seamless experience.  
+Unfortunately, I have to discontinue the project due to financial reasons. Running and maintaining a platform not only takes time but also money – for servers, domains, and further development. Without sufficient resources, it is no longer sustainable to keep Your Daily Tool running at the quality I envisioned.
 
 ---
 
-## 🔮 **What’s Next?**  
+## 💬 Thank You to All Users!
 
-Here’s a sneak peek into the future of Your Daily Tool:  
-- 🗣️ **Vokabeltrainer+**: A fully interactive learning experience with smart progress tracking.  
-- 🔔 **Reminder-Tools**: Stay ahead of deadlines and manage your time like a pro.  
-- 📈 **Enhanced Konvertierungen**: New categories and advanced features to cover every scenario.  
-- 🌍 **Localization**: Bringing Your Daily Tool to users around the globe.  
+I want to sincerely thank everyone who used and supported Your Daily Tool. This project has taught me a lot and was an important milestone in my journey as a developer. Even though it’s ending now, I won’t stop programming – this was just the beginning!
 
----
-
-## 💌 **We Want to Hear From You!**  
-
-Your feedback is the heartbeat of our platform. Let us know what you think:  
-- Use the **Kontaktformular** on [**dailytool.de**](https://dailytool.de).  
-- Drop us a suggestion, or just say hello!  
-
----
-
-> *“Simplify, organize, and thrive – one tool at a time.”*  
-
-Thank you for being part of the **Your Daily Tool** journey.  
-Big things are coming – stay tuned and stay productive! 🚀  
+Maybe one day, Your Daily Tool will return in a new form. Until then, thank you for your support! 🚀
